@@ -13,9 +13,12 @@
 		07F9300427E57659001A9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300227E57659001A9D9E /* Main.storyboard */; };
 		07F9300627E5765A001A9D9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300527E5765A001A9D9E /* Assets.xcassets */; };
 		07F9300927E5765A001A9D9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300727E5765A001A9D9E /* LaunchScreen.storyboard */; };
+		07F9301127E57737001A9D9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07F9301027E57737001A9D9E /* GoogleService-Info.plist */; };
+		D81248B1EE6AC8E3676E0EA1 /* Pods_CloudHop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 004CA3A4D81288E9C53364B5 /* Pods_CloudHop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		004CA3A4D81288E9C53364B5 /* Pods_CloudHop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudHop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FF927E57659001A9D9E /* CloudHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FFC27E57659001A9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F92FFE27E57659001A9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		07F9300527E5765A001A9D9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07F9300827E5765A001A9D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07F9300A27E5765A001A9D9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07F9301027E57737001A9D9E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4438B1CCAA793802D3422F36 /* Pods-CloudHop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudHop.debug.xcconfig"; path = "Target Support Files/Pods-CloudHop/Pods-CloudHop.debug.xcconfig"; sourceTree = "<group>"; };
+		8EFA4D496E275389712DCE83 /* Pods-CloudHop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudHop.release.xcconfig"; path = "Target Support Files/Pods-CloudHop/Pods-CloudHop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D81248B1EE6AC8E3676E0EA1 /* Pods_CloudHop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05CF093544DBF38178D56A6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				004CA3A4D81288E9C53364B5 /* Pods_CloudHop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		07F92FF027E57659001A9D9E = {
 			isa = PBXGroup;
 			children = (
 				07F92FFB27E57659001A9D9E /* CloudHop */,
 				07F92FFA27E57659001A9D9E /* Products */,
+				411F68F11B1C850418BF4E96 /* Pods */,
+				05CF093544DBF38178D56A6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +80,18 @@
 				07F9300527E5765A001A9D9E /* Assets.xcassets */,
 				07F9300727E5765A001A9D9E /* LaunchScreen.storyboard */,
 				07F9300A27E5765A001A9D9E /* Info.plist */,
+				07F9301027E57737001A9D9E /* GoogleService-Info.plist */,
 			);
 			path = CloudHop;
+			sourceTree = "<group>";
+		};
+		411F68F11B1C850418BF4E96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4438B1CCAA793802D3422F36 /* Pods-CloudHop.debug.xcconfig */,
+				8EFA4D496E275389712DCE83 /* Pods-CloudHop.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07F9300D27E5765A001A9D9E /* Build configuration list for PBXNativeTarget "CloudHop" */;
 			buildPhases = (
+				6A996E239B46FAD20C407509 /* [CP] Check Pods Manifest.lock */,
 				07F92FF527E57659001A9D9E /* Sources */,
 				07F92FF627E57659001A9D9E /* Frameworks */,
 				07F92FF727E57659001A9D9E /* Resources */,
+				1C61F2F00A2DCB00F44A0298 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +155,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F9300927E5765A001A9D9E /* LaunchScreen.storyboard in Resources */,
+				07F9301127E57737001A9D9E /* GoogleService-Info.plist in Resources */,
 				07F9300627E5765A001A9D9E /* Assets.xcassets in Resources */,
 				07F9300427E57659001A9D9E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C61F2F00A2DCB00F44A0298 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CloudHop/Pods-CloudHop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CloudHop/Pods-CloudHop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CloudHop/Pods-CloudHop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A996E239B46FAD20C407509 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CloudHop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07F92FF527E57659001A9D9E /* Sources */ = {
@@ -282,6 +354,7 @@
 		};
 		07F9300E27E5765A001A9D9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4438B1CCAA793802D3422F36 /* Pods-CloudHop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +383,7 @@
 		};
 		07F9300F27E5765A001A9D9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EFA4D496E275389712DCE83 /* Pods-CloudHop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
