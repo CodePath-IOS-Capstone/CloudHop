@@ -16,10 +16,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-//        postDoc(collection: "users", data: ["name": "Carlos"])
+        
+        
+        
+        // testing document gets and posts
+        createNewUserDocument(data: ["name": "Carlos", "email": "test@gmail.com", "country": "USA"])
+        addLikedLocation(id: "3", location: "San Francisco", data: ["email": "test@gmail.com"])
 //        getDoc(collection: "users", document: "Carlos")
+        getLikedLocations(email: "test@gmail.com")
+        
     }
-
+    
+    
+    /*
+    Basic function for posting a doc to a collection
+    */
     func postDoc(collection: String, data: NSDictionary) {
         // TODO: replace docID with email once auth is set up
         
@@ -31,12 +42,56 @@ class ViewController: UIViewController {
         
     }
     
+    /*
+    Create a new user in the users collection. Call on user account creation
+    */
+    func createNewUserDocument(data: NSDictionary) {
+        
+        let name = data["name"] as! String
+        let email = data["email"] as! String
+        let country = data["country"] as! String
+//        let createdAt = data["createdAt"] as! Date
+        
+        let documentRef = db.document("users/\(email)")
+
+        // TODO: add the createdAt date
+        documentRef.setData(["name": name, "email": email, "country": country])
+        
+    }
+    
+    /*
+    Update function to append a new location to the location collection. Stored under the document named after the user email.
+    */
+    func addLikedLocation(id: String, location: String, data: NSDictionary) {
+        let email = data["email"] as! String
+        
+        let documentRef = db.document("locations/\(email)")
+        
+        documentRef.setData([id:location], merge: true)
+        
+    }
+    
+    /*
+    Read function to get the values in the locations document. Takes user email and searches that document.
+    */
+    func getLikedLocations(email: String) {
+        let locationsRef = db.document("locations/\(email)")
+        
+        locationsRef.addSnapshotListener { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            print(data.values)
+        }
+    }
+    
+    /*
+    Basic function for getting a document from a collection
+    */
     func getDoc(collection: String, document: String) {
         let docRef = db.document("\(collection)/\(document)")
-        docRef.getDocument { snapshot, error in
+        docRef.addSnapshotListener({ snapshot, error in
             guard let data = snapshot?.data(), error == nil else { return }
             print(data)
-        }
+        })
     }
 
 }
