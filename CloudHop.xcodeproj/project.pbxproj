@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0704FC0727E8569400806F18 /* cityRecommender.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0704FC0627E8569400806F18 /* cityRecommender.mlmodel */; };
 		07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFC27E57659001A9D9E /* AppDelegate.swift */; };
 		07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFE27E57659001A9D9E /* SceneDelegate.swift */; };
 		07F9300127E57659001A9D9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F9300027E57659001A9D9E /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		004CA3A4D81288E9C53364B5 /* Pods_CloudHop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudHop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0704FC0627E8569400806F18 /* cityRecommender.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = cityRecommender.mlmodel; path = "../../../../../../var/folders/hq/90mp1_0x2xs4ygt651r8fp0h0000gn/T/com.apple.dt.CreateML.app/sharing/drag/953BD5BA-9870-4A78-912B-B63558236774/cityRecommender.mlmodel"; sourceTree = "<group>"; };
 		07F92FF927E57659001A9D9E /* CloudHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FFC27E57659001A9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F92FFE27E57659001A9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		07F92FFB27E57659001A9D9E /* CloudHop */ = {
 			isa = PBXGroup;
 			children = (
+				0704FC0627E8569400806F18 /* cityRecommender.mlmodel */,
 				07F92FFC27E57659001A9D9E /* AppDelegate.swift */,
 				07F92FFE27E57659001A9D9E /* SceneDelegate.swift */,
 				07F9300027E57659001A9D9E /* ViewController.swift */,
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F9300127E57659001A9D9E /* ViewController.swift in Sources */,
+				0704FC0727E8569400806F18 /* cityRecommender.mlmodel in Sources */,
 				07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */,
 				07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */,
 			);

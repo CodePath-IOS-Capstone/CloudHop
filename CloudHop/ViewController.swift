@@ -12,16 +12,33 @@ class ViewController: UIViewController {
 
     let db = Firestore.firestore()
     
+    let model = cityRecommender()
+    var resultsBack: [String : Double] = [:]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        var userLikes = ["Asuncion":10.0]
+        userLikes["Porto Alegre"] = 10.0
+        print("USERLIKES----------------")
+        print(userLikes)
+        
+        let input = cityRecommenderInput(items: userLikes, k: 25)
+        
+        guard let unwrappedResults = try? model.prediction(input: input) else {
+                        fatalError("Could not get results back!")
+                    }
+        let results = unwrappedResults.scores
+                
+        resultsBack = results
+        print("RESULTS--------------------")
+        print(results)
 
-        
-        
         
         // testing document gets and posts
         createNewUserDocument(data: ["name": "Carlos", "email": "test@gmail.com", "country": "USA"])
-        addLikedLocation(id: "3", location: "San Francisco", data: ["email": "test@gmail.com"])
+        addLikedLocation(location: "Miami", data: ["email": "test@gmail.com"])
 //        getDoc(collection: "users", document: "Carlos")
         getLikedLocations(email: "test@gmail.com")
         
@@ -62,12 +79,12 @@ class ViewController: UIViewController {
     /*
     Update function to append a new location to the location collection. Stored under the document named after the user email.
     */
-    func addLikedLocation(id: String, location: String, data: NSDictionary) {
+    func addLikedLocation(location: String, data: NSDictionary) {
         let email = data["email"] as! String
         
         let documentRef = db.document("locations/\(email)")
         
-        documentRef.setData([id:location], merge: true)
+        documentRef.setData([location:10.0], merge: true)
         
     }
     
@@ -79,7 +96,7 @@ class ViewController: UIViewController {
         
         locationsRef.addSnapshotListener { snapshot, error in
             guard let data = snapshot?.data(), error == nil else { return }
-            print(data.values)
+            print(data.keys)
         }
     }
     
