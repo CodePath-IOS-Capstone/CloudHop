@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
@@ -34,17 +35,16 @@ class ViewController: UIViewController {
         resultsBack = results
         print("RESULTS--------------------")
         print(results)
-
         
         // testing document gets and posts
-        createNewUserDocument(data: ["name": "Carlos", "email": "test@gmail.com", "country": "USA"])
-        addLikedLocation(location: "Miami", data: ["email": "test@gmail.com"])
+//        createNewUserDocument(data: ["name": "Carlos", "email": "test@gmail.com", "country": "USA"])
+//        addLikedLocation(location: "New York", data: ["email": "test@gmail.com"])
 //        getDoc(collection: "users", document: "Carlos")
-        getLikedLocations(email: "test@gmail.com")
+//        getLikedLocations(email: test@gmail.com)
         
     }
     
-    
+
     /*
     Basic function for posting a doc to a collection
     */
@@ -56,23 +56,6 @@ class ViewController: UIViewController {
         let name = data["name"] as! String
         let documentRef = db.document("\(collection)/\(name)")
         documentRef.setData(["text": name])
-        
-    }
-    
-    /*
-    Create a new user in the users collection. Call on user account creation
-    */
-    func createNewUserDocument(data: NSDictionary) {
-        
-        let name = data["name"] as! String
-        let email = data["email"] as! String
-        let country = data["country"] as! String
-//        let createdAt = data["createdAt"] as! Date
-        
-        let documentRef = db.document("users/\(email)")
-
-        // TODO: add the createdAt date
-        documentRef.setData(["name": name, "email": email, "country": country])
         
     }
     
