@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0704FC0727E8569400806F18 /* cityRecommender.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0704FC0627E8569400806F18 /* cityRecommender.mlmodel */; };
 		0704FC0927E97FDE00806F18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FC0827E97FDE00806F18 /* LoginViewController.swift */; };
 		07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFC27E57659001A9D9E /* AppDelegate.swift */; };
 		07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFE27E57659001A9D9E /* SceneDelegate.swift */; };
@@ -15,7 +14,11 @@
 		07F9300427E57659001A9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300227E57659001A9D9E /* Main.storyboard */; };
 		07F9300627E5765A001A9D9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300527E5765A001A9D9E /* Assets.xcassets */; };
 		07F9300927E5765A001A9D9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300727E5765A001A9D9E /* LaunchScreen.storyboard */; };
-		07F9301127E57737001A9D9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07F9301027E57737001A9D9E /* GoogleService-Info.plist */; };
+		6A7BE20D27ED55570072FCED /* cityRecommender.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BE20C27ED55570072FCED /* cityRecommender.mlmodel */; };
+		6A7BE20F27ED55650072FCED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A7BE20E27ED55650072FCED /* GoogleService-Info.plist */; };
+		6A7BE21127ED5A930072FCED /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BE21027ED5A930072FCED /* AccountViewController.swift */; };
+		6A7BE21327ED5D140072FCED /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BE21227ED5D140072FCED /* SignUpViewController.swift */; };
+		6A7BE21527EE5AD60072FCED /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BE21427EE5AD60072FCED /* HomeScreenViewController.swift */; };
 		D81248B1EE6AC8E3676E0EA1 /* Pods_CloudHop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 004CA3A4D81288E9C53364B5 /* Pods_CloudHop.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,11 @@
 		07F9300A27E5765A001A9D9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07F9301027E57737001A9D9E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4438B1CCAA793802D3422F36 /* Pods-CloudHop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudHop.debug.xcconfig"; path = "Target Support Files/Pods-CloudHop/Pods-CloudHop.debug.xcconfig"; sourceTree = "<group>"; };
+		6A7BE20C27ED55570072FCED /* cityRecommender.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = cityRecommender.mlmodel; sourceTree = "<group>"; };
+		6A7BE20E27ED55650072FCED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6A7BE21027ED5A930072FCED /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		6A7BE21227ED5D140072FCED /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		6A7BE21427EE5AD60072FCED /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		8EFA4D496E275389712DCE83 /* Pods-CloudHop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudHop.release.xcconfig"; path = "Target Support Files/Pods-CloudHop/Pods-CloudHop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0704FC0627E8569400806F18 /* cityRecommender.mlmodel */,
+				6A7BE20C27ED55570072FCED /* cityRecommender.mlmodel */,
 				07F92FFC27E57659001A9D9E /* AppDelegate.swift */,
 				07F92FFE27E57659001A9D9E /* SceneDelegate.swift */,
 				07F9300027E57659001A9D9E /* ViewController.swift */,
@@ -86,7 +95,11 @@
 				07F9300527E5765A001A9D9E /* Assets.xcassets */,
 				07F9300727E5765A001A9D9E /* LaunchScreen.storyboard */,
 				07F9300A27E5765A001A9D9E /* Info.plist */,
+				6A7BE20E27ED55650072FCED /* GoogleService-Info.plist */,
 				07F9301027E57737001A9D9E /* GoogleService-Info.plist */,
+				6A7BE21027ED5A930072FCED /* AccountViewController.swift */,
+				6A7BE21227ED5D140072FCED /* SignUpViewController.swift */,
+				6A7BE21427EE5AD60072FCED /* HomeScreenViewController.swift */,
 			);
 			path = CloudHop;
 			sourceTree = "<group>";
@@ -161,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F9300927E5765A001A9D9E /* LaunchScreen.storyboard in Resources */,
-				07F9301127E57737001A9D9E /* GoogleService-Info.plist in Resources */,
+				6A7BE20F27ED55650072FCED /* GoogleService-Info.plist in Resources */,
 				07F9300627E5765A001A9D9E /* Assets.xcassets in Resources */,
 				07F9300427E57659001A9D9E /* Main.storyboard in Resources */,
 			);
@@ -217,8 +230,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F9300127E57659001A9D9E /* ViewController.swift in Sources */,
-				0704FC0727E8569400806F18 /* cityRecommender.mlmodel in Sources */,
+				6A7BE21527EE5AD60072FCED /* HomeScreenViewController.swift in Sources */,
+				6A7BE21327ED5D140072FCED /* SignUpViewController.swift in Sources */,
 				07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */,
+				6A7BE21127ED5A930072FCED /* AccountViewController.swift in Sources */,
+				6A7BE20D27ED55570072FCED /* cityRecommender.mlmodel in Sources */,
 				0704FC0927E97FDE00806F18 /* LoginViewController.swift in Sources */,
 				07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */,
 			);
