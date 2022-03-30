@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0704FC0927E97FDE00806F18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FC0827E97FDE00806F18 /* LoginViewController.swift */; };
+		07987CE227F40C81003B4517 /* UserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07987CE127F40C81003B4517 /* UserUtil.swift */; };
+		07987CE827F41612003B4517 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07987CE727F41612003B4517 /* RecommendCell.swift */; };
 		07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFC27E57659001A9D9E /* AppDelegate.swift */; };
 		07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFE27E57659001A9D9E /* SceneDelegate.swift */; };
-		07F9300127E57659001A9D9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F9300027E57659001A9D9E /* ViewController.swift */; };
 		07F9300427E57659001A9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300227E57659001A9D9E /* Main.storyboard */; };
 		07F9300627E5765A001A9D9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300527E5765A001A9D9E /* Assets.xcassets */; };
 		07F9300927E5765A001A9D9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300727E5765A001A9D9E /* LaunchScreen.storyboard */; };
@@ -26,10 +27,11 @@
 		004CA3A4D81288E9C53364B5 /* Pods_CloudHop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudHop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0704FC0627E8569400806F18 /* cityRecommender.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = cityRecommender.mlmodel; path = "../../../../../../var/folders/hq/90mp1_0x2xs4ygt651r8fp0h0000gn/T/com.apple.dt.CreateML.app/sharing/drag/953BD5BA-9870-4A78-912B-B63558236774/cityRecommender.mlmodel"; sourceTree = "<group>"; };
 		0704FC0827E97FDE00806F18 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		07987CE127F40C81003B4517 /* UserUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtil.swift; sourceTree = "<group>"; };
+		07987CE727F41612003B4517 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		07F92FF927E57659001A9D9E /* CloudHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FFC27E57659001A9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F92FFE27E57659001A9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		07F9300027E57659001A9D9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07F9300327E57659001A9D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07F9300527E5765A001A9D9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07F9300827E5765A001A9D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,7 +91,6 @@
 				6A7BE20C27ED55570072FCED /* cityRecommender.mlmodel */,
 				07F92FFC27E57659001A9D9E /* AppDelegate.swift */,
 				07F92FFE27E57659001A9D9E /* SceneDelegate.swift */,
-				07F9300027E57659001A9D9E /* ViewController.swift */,
 				0704FC0827E97FDE00806F18 /* LoginViewController.swift */,
 				07F9300227E57659001A9D9E /* Main.storyboard */,
 				07F9300527E5765A001A9D9E /* Assets.xcassets */,
@@ -100,6 +101,8 @@
 				6A7BE21027ED5A930072FCED /* AccountViewController.swift */,
 				6A7BE21227ED5D140072FCED /* SignUpViewController.swift */,
 				6A7BE21427EE5AD60072FCED /* HomeScreenViewController.swift */,
+				07987CE127F40C81003B4517 /* UserUtil.swift */,
+				07987CE727F41612003B4517 /* RecommendCell.swift */,
 			);
 			path = CloudHop;
 			sourceTree = "<group>";
@@ -229,13 +232,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F9300127E57659001A9D9E /* ViewController.swift in Sources */,
 				6A7BE21527EE5AD60072FCED /* HomeScreenViewController.swift in Sources */,
 				6A7BE21327ED5D140072FCED /* SignUpViewController.swift in Sources */,
 				07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */,
 				6A7BE21127ED5A930072FCED /* AccountViewController.swift in Sources */,
 				6A7BE20D27ED55570072FCED /* cityRecommender.mlmodel in Sources */,
 				0704FC0927E97FDE00806F18 /* LoginViewController.swift in Sources */,
+				07987CE227F40C81003B4517 /* UserUtil.swift in Sources */,
+				07987CE827F41612003B4517 /* RecommendCell.swift in Sources */,
 				07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

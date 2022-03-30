@@ -7,14 +7,44 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
+import AlamofireImage
 
-class HomeScreenViewController: UIViewController {
+class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    let db = Firestore.firestore()
+    var recommendations = [String]()
+    
+    @IBOutlet weak var recommendGrid: UICollectionView!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
+        UserUtil.getLoggedInUser()
+        let emailUser = UserUtil.userEmail
+        UserUtil.getLikedLocations(email: emailUser)
+        UserUtil.predictModel(locations: UserUtil.userLikes)
+        
+        
+        recommendGrid.delegate = self
+        recommendGrid.dataSource = self
+        
+        
+        recommendations = UserUtil.resultsBack
+        self.recommendGrid.reloadData()
+        print(recommendations)
+        
     }
+    
+    
     
     @IBAction func onLogout(_ sender: Any) {
         signOut()
@@ -34,6 +64,48 @@ class HomeScreenViewController: UIViewController {
 
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = recommendGrid.dequeueReusableCell(withReuseIdentifier: "RecommendCell", for: indexPath) as! RecommendCell
+        
+
+
+
+        let city = recommendations[indexPath.item]
+        let name = city
+    
+
+        getImagePath(city: city) { img in
+            let cityUrl = URL(string: img)
+            cell.cityImage.af.setImage(withURL: cityUrl!)
+        }
+        
+        cell.cityName.text = name
+        
+        
+        return cell
+    }
+    
+    
+    /*
+    Basic function to get a city image URL
+    */
+
+    private func getImagePath(city: String, completion: @escaping (_ img: String) -> ()) {
+        let docRef = db.collection("allCities").document("\(city)")
+
+        docRef.addSnapshotListener({ snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            
+            var img = data["image"] as? String ?? ""
+            
+            completion((String) (img))
+            
+        })
+    }
     
     
     /*
