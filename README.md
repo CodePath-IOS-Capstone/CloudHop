@@ -5,6 +5,7 @@
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
+3. [Sprint Updates](#Sprint Updates)
 
 ## Overview
 ### Description
@@ -25,13 +26,14 @@ Travel recommendation app for allowing users to sign up for accounts and choose 
 
 **Required Must-have Stories**
 
-* [Database for user accounts and likes.]
-* [User registration]
-* [User login and logout]
-* [recommendation system to use world cities dataset to predict locations users may like.]
-* [UI for viewing the recommendations]
-* [UI for user account creation and selecting basic information on preferences.]
-* [UI for feed and viewing follower likes.]
+* [Database for user accounts and likes.] (DONE)
+* [User registration] (DONE)
+* [User login and logout] (DONE)
+* [recommendation system to use world cities dataset to predict locations users may like.] (DONE)
+* [UI for viewing the recommendations] (IN PROGRESS)
+* [UI for user account creation and selecting basic information on preferences.] (IN PROGRESS)
+* [UI for all locations view] (IN PROGRESS)
+* [UI for feed and viewing follower likes.] 
 
 **Optional Nice-to-have Stories**
 
@@ -146,7 +148,7 @@ https://user-images.githubusercontent.com/75550025/158933338-1043a890-a0cb-425b-
     - (Create/POST) Update a user preference to add that location to the likes 
     - (Delete/DELETE) Remove a user preference
 
-##Sprint 2 updates
+### Sprint Updates
 
 https://user-images.githubusercontent.com/75550025/161202757-d49b6a5e-ab23-49fa-9aa4-632a63e6dcf8.mp4
 
