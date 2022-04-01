@@ -97,7 +97,7 @@ https://user-images.githubusercontent.com/75550025/158933338-1043a890-a0cb-425b-
 
 | Property | Type | Description |
 |----------|------|-------------|
-| UserId | String | String for unique user id |
+| Email | String | String for unique email used as doc id |
 | Name | String | String for holding the Username for each user |
 | Country | String | Holds the users home Country |
 | Preferences | Pointer Array | Pointer array to list of the user liked locations |
@@ -145,4 +145,8 @@ https://user-images.githubusercontent.com/75550025/158933338-1043a890-a0cb-425b-
     - (Read/GET) Query locations from firebase firestore that match the user preferences based on the ML recommendation system model.
     - (Create/POST) Update a user preference to add that location to the likes 
     - (Delete/DELETE) Remove a user preference
+
+##Sprint 2 updates
+
+https://user-images.githubusercontent.com/75550025/161202757-d49b6a5e-ab23-49fa-9aa4-632a63e6dcf8.mp4
 
