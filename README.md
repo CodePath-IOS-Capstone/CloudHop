@@ -5,7 +5,7 @@
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
-3. [Sprint Updates](#Sprint Updates)
+3. [Sprint Updates](#Updates)
 
 ## Overview
 ### Description
@@ -148,7 +148,7 @@ https://user-images.githubusercontent.com/75550025/158933338-1043a890-a0cb-425b-
     - (Create/POST) Update a user preference to add that location to the likes 
     - (Delete/DELETE) Remove a user preference
 
-## Sprint Updates
+## Updates
 
 https://user-images.githubusercontent.com/75550025/161202757-d49b6a5e-ab23-49fa-9aa4-632a63e6dcf8.mp4
 
