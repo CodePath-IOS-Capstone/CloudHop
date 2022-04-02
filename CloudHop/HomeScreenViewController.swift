@@ -10,18 +10,15 @@ import FirebaseAuth
 import FirebaseFirestore
 import AlamofireImage
 
-class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     let db = Firestore.firestore()
     var recommendations = [String]()
+    var locations = [String]()
     
     @IBOutlet weak var recommendGrid: UICollectionView!
+    @IBOutlet weak var locationsTable: UITableView!
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +34,15 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         recommendGrid.delegate = self
         recommendGrid.dataSource = self
         
+        locationsTable.delegate = self
+        locationsTable.dataSource = self
+        
         
         recommendations = UserUtil.resultsBack
+        
+
         self.recommendGrid.reloadData()
+        self.locationsTable.reloadData()
         print(recommendations)
         
     }
@@ -78,7 +81,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         let name = city
     
 
-        getImagePath(city: city) { img in
+        UserUtil.getImagePath(city: city) { img in
             let cityUrl = URL(string: img)
             cell.cityImage.af.setImage(withURL: cityUrl!)
         }
@@ -89,22 +92,36 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         return cell
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 15
+    }
     
-    /*
-    Basic function to get a city image URL
-    */
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = locationsTable.dequeueReusableCell(withIdentifier: "LocationsHomeCell") as! LocationHomeCell
+        
+        
+        UserUtil.getCollection(collection: "allCities") { col in
+            let city = col[indexPath.row]
+            
 
-    private func getImagePath(city: String, completion: @escaping (_ img: String) -> ()) {
-        let docRef = db.collection("allCities").document("\(city)")
+            UserUtil.getImagePath(city: city) { img in
+                let cityUrl = URL(string: img)
+                cell.cityImage.af.setImage(withURL: cityUrl!)
+            }
 
-        docRef.addSnapshotListener({ snapshot, error in
-            guard let data = snapshot?.data(), error == nil else { return }
+
+            UserUtil.getDescription(city: city) { description in
+                cell.cityDesc.text = description
+            }
             
-            var img = data["image"] as? String ?? ""
+            UserUtil.getCountry(city: city) { country in
+                cell.cityName.text = "\(city), \(country)"
+            }
             
-            completion((String) (img))
-            
-        })
+        }
+        
+        
+        return cell
     }
     
     
