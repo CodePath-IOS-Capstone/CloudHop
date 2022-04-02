@@ -10,6 +10,11 @@
 		0704FC0927E97FDE00806F18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FC0827E97FDE00806F18 /* LoginViewController.swift */; };
 		07987CE227F40C81003B4517 /* UserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07987CE127F40C81003B4517 /* UserUtil.swift */; };
 		07987CE827F41612003B4517 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07987CE727F41612003B4517 /* RecommendCell.swift */; };
+		07BA7DFC27F7729100893F88 /* LocationHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7DFB27F7729100893F88 /* LocationHomeCell.swift */; };
+		07BA7DFE27F8B62E00893F88 /* RecommendationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7DFD27F8B62E00893F88 /* RecommendationListViewController.swift */; };
+		07BA7E0027F8B9C900893F88 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7DFF27F8B9C900893F88 /* DiscoverViewController.swift */; };
+		07BA7E0427F8C3A700893F88 /* AllRecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0327F8C3A700893F88 /* AllRecommendationsTableViewCell.swift */; };
+		07BA7E0627F8C6BD00893F88 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0527F8C6BD00893F88 /* DiscoverTableViewCell.swift */; };
 		07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFC27E57659001A9D9E /* AppDelegate.swift */; };
 		07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFE27E57659001A9D9E /* SceneDelegate.swift */; };
 		07F9300427E57659001A9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300227E57659001A9D9E /* Main.storyboard */; };
@@ -29,6 +34,11 @@
 		0704FC0827E97FDE00806F18 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		07987CE127F40C81003B4517 /* UserUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtil.swift; sourceTree = "<group>"; };
 		07987CE727F41612003B4517 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		07BA7DFB27F7729100893F88 /* LocationHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHomeCell.swift; sourceTree = "<group>"; };
+		07BA7DFD27F8B62E00893F88 /* RecommendationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationListViewController.swift; sourceTree = "<group>"; };
+		07BA7DFF27F8B9C900893F88 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		07BA7E0327F8C3A700893F88 /* AllRecommendationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecommendationsTableViewCell.swift; sourceTree = "<group>"; };
+		07BA7E0527F8C6BD00893F88 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		07F92FF927E57659001A9D9E /* CloudHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FFC27E57659001A9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F92FFE27E57659001A9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +113,11 @@
 				6A7BE21427EE5AD60072FCED /* HomeScreenViewController.swift */,
 				07987CE127F40C81003B4517 /* UserUtil.swift */,
 				07987CE727F41612003B4517 /* RecommendCell.swift */,
+				07BA7DFB27F7729100893F88 /* LocationHomeCell.swift */,
+				07BA7DFD27F8B62E00893F88 /* RecommendationListViewController.swift */,
+				07BA7DFF27F8B9C900893F88 /* DiscoverViewController.swift */,
+				07BA7E0327F8C3A700893F88 /* AllRecommendationsTableViewCell.swift */,
+				07BA7E0527F8C6BD00893F88 /* DiscoverTableViewCell.swift */,
 			);
 			path = CloudHop;
 			sourceTree = "<group>";
@@ -239,7 +254,12 @@
 				6A7BE20D27ED55570072FCED /* cityRecommender.mlmodel in Sources */,
 				0704FC0927E97FDE00806F18 /* LoginViewController.swift in Sources */,
 				07987CE227F40C81003B4517 /* UserUtil.swift in Sources */,
+				07BA7DFC27F7729100893F88 /* LocationHomeCell.swift in Sources */,
+				07BA7DFE27F8B62E00893F88 /* RecommendationListViewController.swift in Sources */,
+				07BA7E0027F8B9C900893F88 /* DiscoverViewController.swift in Sources */,
+				07BA7E0427F8C3A700893F88 /* AllRecommendationsTableViewCell.swift in Sources */,
 				07987CE827F41612003B4517 /* RecommendCell.swift in Sources */,
+				07BA7E0627F8C6BD00893F88 /* DiscoverTableViewCell.swift in Sources */,
 				07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

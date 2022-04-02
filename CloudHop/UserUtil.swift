@@ -101,5 +101,70 @@ class UserUtil {
             print(data)
         })
     }
+    
+    static func getCollection(collection: String, completion: @escaping (_ col: [String]) -> ()) {
+        db.collection("\(collection)").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                var col = [String]()
+                for document in querySnapshot!.documents {
+                    
+                    col.append(document.documentID)
+                }
+                print(col)
+                completion(([String]) (col))
+            }
+        }
+    }
+    
+    /*
+    Basic function to get a city image URL
+    */
+
+    static func getImagePath(city: String, completion: @escaping (_ img: String) -> ()) {
+        let docRef = db.collection("allCities").document("\(city)")
+
+        docRef.addSnapshotListener({ snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            
+            let img = data["image"] as? String ?? ""
+            
+            completion((String) (img))
+            
+        })
+    }
+    
+    /*
+    Basic function to get a city description
+    */
+    static func getDescription(city: String, completion: @escaping (_ desc: String) -> ()) {
+        let docRef = db.collection("allCities").document("\(city)")
+
+        docRef.addSnapshotListener({ snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            
+            let description = data["descriptions"] as? String ?? ""
+            
+            completion((String) (description))
+            
+        })
+    }
+    
+    /*
+    Basic function to get a country for the city
+    */
+    static func getCountry(city: String, completion: @escaping (_ country: String) -> ()) {
+        let docRef = db.collection("allCities").document("\(city)")
+
+        docRef.addSnapshotListener({ snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            
+            let country = data["country"] as? String ?? ""
+            
+            completion((String) (country))
+            
+        })
+    }
 }
 
