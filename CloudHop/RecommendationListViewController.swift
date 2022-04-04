@@ -23,35 +23,45 @@ class RecommendationListViewController: UIViewController, UITableViewDelegate, U
         recommendTable.delegate = self
         recommendTable.dataSource = self
         
-        recommendations = UserUtil.resultsBack
+        UserUtil.getRecommendations(email: UserUtil.userEmail) { rec in
+            self.recommendations = Array(rec.keys).sorted(by: { rec[$0]! > rec[$1]! })
+            self.recommendTable.reloadData()
+        }
         
         self.recommendTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return recommendations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = recommendTable.dequeueReusableCell(withIdentifier: "recommendAllCell") as! AllRecommendationsTableViewCell
         
+        var sortedRecs = [String]()
         
-        
-        let city = recommendations[indexPath.row]
-            
+            UserUtil.getRecommendations(email: UserUtil.userEmail) { rec in
+                sortedRecs = Array(rec.keys).sorted(by: { rec[$0]! > rec[$1]! })
+                sortedRecs.sort()
+                
+                let city = sortedRecs[indexPath.row]
+                    
 
-        UserUtil.getImagePath(city: city) { img in
-                let cityUrl = URL(string: img)
-                cell.cityImage.af.setImage(withURL: cityUrl!)
-        }
+                UserUtil.getImagePath(city: city) { img in
+                        let cityUrl = URL(string: img)
+                        cell.cityImage.af.setImage(withURL: cityUrl!)
+                }
 
-        UserUtil.getDescription(city: city) { description in
-                cell.desc.text = description
-        }
+                UserUtil.getDescription(city: city) { description in
+                        cell.desc.text = description
+                }
+                
+                UserUtil.getCountry(city: city) { country in
+                        cell.cityName.text = "\(city), \(country)"
+                }
+            }
         
-        UserUtil.getCountry(city: city) { country in
-                cell.cityName.text = "\(city), \(country)"
-        }
+        
         
         return cell
     }

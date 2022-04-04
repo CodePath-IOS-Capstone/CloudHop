@@ -13,7 +13,6 @@ import AlamofireImage
 class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     let db = Firestore.firestore()
-    var recommendations = [String]()
     var locations = [String]()
     
     @IBOutlet weak var recommendGrid: UICollectionView!
@@ -25,10 +24,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
 
         // Do any additional setup after loading the view.
-        UserUtil.getLoggedInUser()
-        let emailUser = UserUtil.userEmail
-        UserUtil.getLikedLocations(email: emailUser)
-        UserUtil.predictModel(locations: UserUtil.userLikes)
+        UserUtil.getLoggedInUser()        
         
         
         recommendGrid.delegate = self
@@ -37,13 +33,23 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         locationsTable.delegate = self
         locationsTable.dataSource = self
         
+        UserUtil.getLikedLocations(email: UserUtil.userEmail) { like in
+            UserUtil.predictModel(locations: like) { recs in
+                var hits = [String:Any]()
+                for rec in  recs {
+                    if rec.value > 0 {
+                        hits[rec.key] = rec.value
+                    }
+                }
+                UserUtil.postRecommendations(recommendations: hits)
+            }
+        }
         
-        recommendations = UserUtil.resultsBack
         
 
         self.recommendGrid.reloadData()
         self.locationsTable.reloadData()
-        print(recommendations)
+        
         
     }
     
@@ -74,19 +80,22 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = recommendGrid.dequeueReusableCell(withReuseIdentifier: "RecommendCell", for: indexPath) as! RecommendCell
         
-
-
-
-        let city = recommendations[indexPath.item]
-        let name = city
-    
-
-        UserUtil.getImagePath(city: city) { img in
-            let cityUrl = URL(string: img)
-            cell.cityImage.af.setImage(withURL: cityUrl!)
-        }
+        var sortedRecs = [String]()
         
-        cell.cityName.text = name
+            UserUtil.getRecommendations(email: UserUtil.userEmail) { rec in
+                sortedRecs = Array(rec.keys).sorted(by: { rec[$0]! > rec[$1]! })
+                sortedRecs.sort()
+                let city = sortedRecs[indexPath.item]
+                let name = city
+            
+
+                UserUtil.getImagePath(city: city) { img in
+                    let cityUrl = URL(string: img)
+                    cell.cityImage.af.setImage(withURL: cityUrl!)
+                }
+                
+                cell.cityName.text = name
+            }
         
         
         return cell
