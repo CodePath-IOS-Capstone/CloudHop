@@ -21,17 +21,44 @@ class UserUtil {
     /*
     Read function to get the values in the locations document. Takes user email and searches that document.
     */
+    static func getLikedLocations(email: String, completion: @escaping (_ like: [String:Any]) -> ()) {
+        let locationsRef = db.document("locations/\(email)")
+        
+        locationsRef.addSnapshotListener { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            let like = data
+            completion(like)
+            
+        }
+    }
+    
+    /*
+    Read function to get the values in the locations document
+    */
     static func getLikedLocations(email: String) {
         let locationsRef = db.document("locations/\(email)")
         
         locationsRef.addSnapshotListener { snapshot, error in
             guard let data = snapshot?.data(), error == nil else { return }
             self.userLikes = data
-            print(self.userLikes)
+            
         }
     }
 
-
+    /*
+    Read function to get the values in the locations document. Takes user email and searches that document.
+    */
+    static func getLikedLocationsArray(email: String, completion: @escaping (_ like: [String]) -> ()) {
+        let locationsRef = db.document("locations/\(email)")
+        
+        locationsRef.addSnapshotListener { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            let like = data.keys
+            completion(([String]) (like))
+            
+        }
+    }
+    
     /*
     Function to get the current users email and save it in userEmail. Used when fetching information about the user from firestore.
     */
@@ -44,7 +71,7 @@ class UserUtil {
     }
 
     /*
-    Function to compute recommendations from user liked locations document stored on firestore
+    Function to compute recommendations from user liked locations document stored on firestore <
     */
 
     static func predictModel(locations: Dictionary<String, Any>) {
@@ -66,6 +93,33 @@ class UserUtil {
     }
     
     /*
+    Function to compute recommendations from user liked locations document stored on firestore. Completion >
+    */
+
+    static func predictModel(locations: Dictionary<String, Any>, completion: @escaping (_ recs: [String:Double]) -> ()) {
+        let input = cityRecommenderInput(items: locations as! [String : Double], k: 120)
+        
+        guard let unwrappedResults = try? model.prediction(input: input) else {
+                        fatalError("Could not get results back!")
+                    }
+        let results = unwrappedResults.scores
+        
+//        let sortedKeys = Array(results.keys).sorted(by: { results[$0]! > results[$1]! })
+        
+//        let recs = sortedKeys
+        let recs = results
+        print("RESULTS--------------------")
+        print(results)
+        print("RESULTS BACK--------------------")
+        print(recs)
+        
+        
+        completion(recs)
+        
+        
+    }
+    
+    /*
     Basic function for posting a doc to a collection
     */
     static func postDoc(collection: String, data: NSDictionary) {
@@ -80,15 +134,53 @@ class UserUtil {
     }
     
     /*
+    Basic function for initializing an empty doc to a collection
+    */
+    static func initDoc(collection: String) {
+        // TODO: replace docID with email once auth is set up
+        
+//        let collectionRef = db.collection(collection)
+//        let docId = collectionRef.document().documentID
+        
+        let documentRef = db.document("\(collection)/\(UserUtil.userEmail)")
+        documentRef.setData([String:Any]())
+        
+    }
+    
+    /*
     Update function to append a new location to the location collection. Stored under the document named after the user email.
     */
-    static func addLikedLocation(location: String, data: NSDictionary) {
-        let email = data["email"] as! String
+    static func addLikedLocation(location: String) {
         
-        let documentRef = db.document("locations/\(email)")
+        let documentRef = db.document("locations/\(userEmail)")
         
         documentRef.setData([location:10.0], merge: true)
         
+    }
+    
+    /*
+    Update function to append a recommendations to the recommendation collection. Stored under the document named after the user email.
+    */
+    static func postRecommendations(recommendations: [String:Any]) {
+        
+        let documentRef = db.document("recommendations/\(userEmail)")
+        
+        documentRef.setData(recommendations, merge: true)
+        
+    }
+    
+    /*
+    Read function to get the values in the recommendations document. Takes user email and searches that document.
+    */
+    static func getRecommendations(email: String, completion: @escaping (_ rec: [String:Int]) -> ()) {
+        let locationsRef = db.document("recommendations/\(email)")
+        
+        locationsRef.addSnapshotListener { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            let rec = data as! [String:Int]
+            
+            completion(rec)
+        }
     }
     
     /*
@@ -166,5 +258,7 @@ class UserUtil {
             
         })
     }
+    
+    
 }
 

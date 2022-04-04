@@ -52,7 +52,7 @@ class SignUpViewController: UIViewController {
             }
 //             save user email, name and country into doc under email
             self?.createNewUserDocument(data: ["name" : name, "email" : email, "country" : country])
-            self?.performSegue(withIdentifier: "homeSegue", sender: nil)
+            self?.performSegue(withIdentifier: "preferenceSegue", sender: nil)
             print("Signed in")
             
         })
@@ -74,14 +74,17 @@ class SignUpViewController: UIViewController {
         documentRef.setData(["name": name, "email": email, "country": country])
         
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//         Get the new view controller using segue.destination.
+//         Pass the selected object to the new view controller.
+        UserUtil.userEmail = emailField.text!
+//        UserUtil.addLikedLocation(location: "Adelaide")
+        UserUtil.initDoc(collection: "locations")
     }
-    */
+    
 
 }

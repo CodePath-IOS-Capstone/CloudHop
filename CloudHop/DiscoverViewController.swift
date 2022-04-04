@@ -29,7 +29,6 @@ class DiscoverViewController: UIViewController, UITableViewDelegate, UITableView
             self.discoverTable.reloadData()
         }
         
-        
         discoverTable.keyboardDismissMode = .onDrag
         
     }

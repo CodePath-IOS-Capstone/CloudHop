@@ -15,6 +15,10 @@
 		07BA7E0027F8B9C900893F88 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7DFF27F8B9C900893F88 /* DiscoverViewController.swift */; };
 		07BA7E0427F8C3A700893F88 /* AllRecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0327F8C3A700893F88 /* AllRecommendationsTableViewCell.swift */; };
 		07BA7E0627F8C6BD00893F88 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0527F8C6BD00893F88 /* DiscoverTableViewCell.swift */; };
+		07BA7E0827F93E0B00893F88 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0727F93E0B00893F88 /* PreferencesViewController.swift */; };
+		07BA7E0A27F9428D00893F88 /* PreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0927F9428D00893F88 /* PreferencesCell.swift */; };
+		07BA7E0E27F95A7B00893F88 /* PreferenceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0D27F95A7B00893F88 /* PreferenceCollectionViewCell.swift */; };
+		07BA7E1027F95B9200893F88 /* collectionExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0F27F95B9200893F88 /* collectionExt.swift */; };
 		07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFC27E57659001A9D9E /* AppDelegate.swift */; };
 		07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFE27E57659001A9D9E /* SceneDelegate.swift */; };
 		07F9300427E57659001A9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300227E57659001A9D9E /* Main.storyboard */; };
@@ -39,6 +43,10 @@
 		07BA7DFF27F8B9C900893F88 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		07BA7E0327F8C3A700893F88 /* AllRecommendationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecommendationsTableViewCell.swift; sourceTree = "<group>"; };
 		07BA7E0527F8C6BD00893F88 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
+		07BA7E0727F93E0B00893F88 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		07BA7E0927F9428D00893F88 /* PreferencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCell.swift; sourceTree = "<group>"; };
+		07BA7E0D27F95A7B00893F88 /* PreferenceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCollectionViewCell.swift; sourceTree = "<group>"; };
+		07BA7E0F27F95B9200893F88 /* collectionExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionExt.swift; sourceTree = "<group>"; };
 		07F92FF927E57659001A9D9E /* CloudHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FFC27E57659001A9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F92FFE27E57659001A9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +126,10 @@
 				07BA7DFF27F8B9C900893F88 /* DiscoverViewController.swift */,
 				07BA7E0327F8C3A700893F88 /* AllRecommendationsTableViewCell.swift */,
 				07BA7E0527F8C6BD00893F88 /* DiscoverTableViewCell.swift */,
+				07BA7E0727F93E0B00893F88 /* PreferencesViewController.swift */,
+				07BA7E0927F9428D00893F88 /* PreferencesCell.swift */,
+				07BA7E0D27F95A7B00893F88 /* PreferenceCollectionViewCell.swift */,
+				07BA7E0F27F95B9200893F88 /* collectionExt.swift */,
 			);
 			path = CloudHop;
 			sourceTree = "<group>";
@@ -249,9 +261,13 @@
 			files = (
 				6A7BE21527EE5AD60072FCED /* HomeScreenViewController.swift in Sources */,
 				6A7BE21327ED5D140072FCED /* SignUpViewController.swift in Sources */,
+				07BA7E0E27F95A7B00893F88 /* PreferenceCollectionViewCell.swift in Sources */,
+				07BA7E0A27F9428D00893F88 /* PreferencesCell.swift in Sources */,
 				07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */,
 				6A7BE21127ED5A930072FCED /* AccountViewController.swift in Sources */,
 				6A7BE20D27ED55570072FCED /* cityRecommender.mlmodel in Sources */,
+				07BA7E1027F95B9200893F88 /* collectionExt.swift in Sources */,
+				07BA7E0827F93E0B00893F88 /* PreferencesViewController.swift in Sources */,
 				0704FC0927E97FDE00806F18 /* LoginViewController.swift in Sources */,
 				07987CE227F40C81003B4517 /* UserUtil.swift in Sources */,
 				07BA7DFC27F7729100893F88 /* LocationHomeCell.swift in Sources */,
