@@ -51,6 +51,8 @@ class SignUpViewController: UIViewController {
                 return
             }
 //             save user email, name and country into doc under email
+            UserDefaults.standard.set(true, forKey: "userLoggedIn")
+            UserDefaults.standard.set(email, forKey: "loggedInEmail")
             self?.createNewUserDocument(data: ["name" : name, "email" : email, "country" : country])
             self?.performSegue(withIdentifier: "preferenceSegue", sender: nil)
             print("Signed in")
@@ -81,9 +83,10 @@ class SignUpViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //         Get the new view controller using segue.destination.
 //         Pass the selected object to the new view controller.
-        UserUtil.userEmail = emailField.text!
+        guard segue.identifier == "preferenceSegue" else { return }
+        UserUtil.userEmail = UserDefaults.standard.string(forKey: "loggedInUser") ?? emailField.text!
 //        UserUtil.addLikedLocation(location: "Adelaide")
-        UserUtil.initDoc(collection: "locations")
+        UserUtil.initDoc(collection: "likes")
     }
     
 
