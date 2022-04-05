@@ -35,7 +35,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         UserUtil.getLikedLocations(email: UserUtil.userEmail) { like in
             UserUtil.predictModel(locations: like) { recs in
-                var hits = [String:Any]()
+                var hits = [String:Double]()
                 for rec in  recs {
                     if rec.value > 0 {
                         hits[rec.key] = rec.value
@@ -134,14 +134,17 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        guard segue.identifier == "logoutSegue" else { return }
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
-    */
+    
+    
 
 }

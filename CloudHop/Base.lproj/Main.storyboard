@@ -600,6 +600,9 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="eyi-ej-h6n" kind="presentation" identifier="toHome" modalPresentationStyle="fullScreen" id="yug-wC-oy6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferences" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXR-XV-vhW">
                                 <rect key="frame" x="128.66666666666666" y="68" width="132.99999999999997" height="32"/>
@@ -714,6 +717,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="n9q-kt-4Gz" id="TAd-xu-gxE"/>
                         <outlet property="preferenceCollection" destination="Eyj-Xm-YmO" id="LtO-G6-OtR"/>
                         <outlet property="sliderCollection" destination="WhT-3P-ifL" id="uYF-zz-GgW"/>
                     </connections>
@@ -859,7 +863,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="V4L-br-uOU"/>
+        <segue reference="yug-wC-oy6"/>
+        <segue reference="EVc-TD-X1n"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Group 1" width="488" height="474"/>

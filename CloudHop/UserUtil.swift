@@ -21,12 +21,14 @@ class UserUtil {
     /*
     Read function to get the values in the locations document. Takes user email and searches that document.
     */
-    static func getLikedLocations(email: String, completion: @escaping (_ like: [String:Any]) -> ()) {
-        let locationsRef = db.document("locations/\(email)")
+    static func getLikedLocations(email: String, completion: @escaping (_ like: [String:Double]) -> ()) {
+        let locationsRef = db.document("likes/\(email)")
         
         locationsRef.addSnapshotListener { snapshot, error in
             guard let data = snapshot?.data(), error == nil else { return }
-            let like = data
+            print("email:", email)
+            print("---->", data)
+            let like = data as! [String:Double]
             completion(like)
             
         }
@@ -36,7 +38,7 @@ class UserUtil {
     Read function to get the values in the locations document
     */
     static func getLikedLocations(email: String) {
-        let locationsRef = db.document("locations/\(email)")
+        let locationsRef = db.document("likes/\(email)")
         
         locationsRef.addSnapshotListener { snapshot, error in
             guard let data = snapshot?.data(), error == nil else { return }
@@ -49,7 +51,7 @@ class UserUtil {
     Read function to get the values in the locations document. Takes user email and searches that document.
     */
     static func getLikedLocationsArray(email: String, completion: @escaping (_ like: [String]) -> ()) {
-        let locationsRef = db.document("locations/\(email)")
+        let locationsRef = db.document("likes/\(email)")
         
         locationsRef.addSnapshotListener { snapshot, error in
             guard let data = snapshot?.data(), error == nil else { return }
@@ -96,8 +98,8 @@ class UserUtil {
     Function to compute recommendations from user liked locations document stored on firestore. Completion >
     */
 
-    static func predictModel(locations: Dictionary<String, Any>, completion: @escaping (_ recs: [String:Double]) -> ()) {
-        let input = cityRecommenderInput(items: locations as! [String : Double], k: 120)
+    static func predictModel(locations: Dictionary<String, Double>, completion: @escaping (_ recs: [String:Double]) -> ()) {
+        let input = cityRecommenderInput(items: locations, k: 120)
         
         guard let unwrappedResults = try? model.prediction(input: input) else {
                         fatalError("Could not get results back!")
@@ -152,7 +154,7 @@ class UserUtil {
     */
     static func addLikedLocation(location: String) {
         
-        let documentRef = db.document("locations/\(userEmail)")
+        let documentRef = db.document("likes/\(userEmail)")
         
         documentRef.setData([location:10.0], merge: true)
         
@@ -165,21 +167,39 @@ class UserUtil {
         
         let documentRef = db.document("recommendations/\(userEmail)")
         
-        documentRef.setData(recommendations, merge: true)
+        documentRef.setData(recommendations)
         
     }
     
     /*
     Read function to get the values in the recommendations document. Takes user email and searches that document.
     */
-    static func getRecommendations(email: String, completion: @escaping (_ rec: [String:Int]) -> ()) {
+    static func getRecommendations(email: String, completion: @escaping (_ rec: [String:Double]) -> ()) {
         let locationsRef = db.document("recommendations/\(email)")
         
         locationsRef.addSnapshotListener { snapshot, error in
             guard let data = snapshot?.data(), error == nil else { return }
-            let rec = data as! [String:Int]
+            
+            
+            let filter = data as! [String:Double]
+            var sum = 0.0
+            for item in filter {
+                sum += item.value
+            }
+            let average = sum / (Double) (filter.keys.count)
+            
+            print("Average-->>", average)
+            
+            var rec = [String:Double]()
+            
+            for item in filter {
+                if item.value >= average {
+                    rec[item.key] = item.value
+                }
+            }
             
             completion(rec)
+            
         }
     }
     
