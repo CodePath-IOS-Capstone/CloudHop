@@ -1,16 +1,17 @@
 //
-//  PreferenceCollectionViewCell.swift
+//  SwipeCell.swift
 //  CloudHop
 //
-//  Created by Carlos Chavez on 4/3/22.
+//  Created by Carlos Chavez on 4/7/22.
 //
 
 import UIKit
 
-class PreferenceCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var cityImage: UIImageView!
+class SwipeCell: UICollectionViewCell {
     @IBOutlet weak var cityName: UILabel!
-    @IBOutlet weak var countryName: UILabel!
+    @IBOutlet weak var cityCountry: UILabel!
+    @IBOutlet weak var cityDesc: UILabel!
+    @IBOutlet weak var cityImage: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     
     var checked = Bool()
@@ -25,7 +26,6 @@ class PreferenceCollectionViewCell: UICollectionViewCell {
         
     }
     
-    
     @IBAction func onLike(_ sender: Any) {
         if !checked {
             likeButton.setImage(UIImage(named: "heart.png"), for: .normal)
@@ -37,4 +37,7 @@ class PreferenceCollectionViewCell: UICollectionViewCell {
             checked = false
         }
     }
+    
+    
+    
 }

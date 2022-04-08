@@ -10,10 +10,10 @@ import UIKit
 class PreferenceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cityImage: UIImageView!
     @IBOutlet weak var cityName: UILabel!
-    @IBOutlet weak var countryName: UILabel!
+
     @IBOutlet weak var likeButton: UIButton!
     
-    var checked = Bool()
+    var checked = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,9 +22,7 @@ class PreferenceCollectionViewCell: UICollectionViewCell {
         likeButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         likeButton.layer.shadowRadius = 3
         likeButton.layer.shadowOpacity = 0.5
-        
     }
-    
     
     @IBAction func onLike(_ sender: Any) {
         if !checked {
@@ -33,7 +31,6 @@ class PreferenceCollectionViewCell: UICollectionViewCell {
             checked = true
         } else {
             likeButton.setImage(UIImage(named: "unfavorite.png"), for: .normal)
-            UserUtil.deleteLike(email: UserUtil.userEmail, field: cityName.text!)
             checked = false
         }
     }
