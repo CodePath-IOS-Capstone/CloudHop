@@ -161,6 +161,23 @@ class UserUtil {
     }
     
     /*
+    Delete a liked location
+    */
+    
+    static func deleteLike(email: String, field: String) {
+        db.collection("likes").document(email).updateData([
+            field : FieldValue.delete(),
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
+    
+    /*
     Update function to append a recommendations to the recommendation collection. Stored under the document named after the user email.
     */
     static func postRecommendations(recommendations: [String:Any]) {
