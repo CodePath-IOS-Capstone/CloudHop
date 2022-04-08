@@ -280,7 +280,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="eEu-q8-zXT">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="gKs-Se-jZp">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="tintColor"/>
                             <connections>
                                 <action selector="onLogout:" destination="nw7-4a-jMT" id="Qtq-tp-8t4"/>
                                 <segue destination="atL-ss-eZq" kind="presentation" identifier="logoutSegue" modalPresentationStyle="fullScreen" id="EVc-TD-X1n"/>
@@ -1009,6 +1009,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
