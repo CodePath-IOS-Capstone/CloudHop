@@ -20,7 +20,7 @@ class SwipeViewController: UIViewController,  UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Explore"
+        
         print(UserUtil.userEmail) // TESTING
 
         // Do any additional setup after loading the view.

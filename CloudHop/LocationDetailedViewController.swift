@@ -12,33 +12,63 @@ class LocationDetailedViewController: UIViewController {
     @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var locationTitle: UILabel!
     @IBOutlet weak var countryTitle: UILabel!
-    @IBOutlet weak var descriptionBox: UILabel!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var descriptionBox: UITextView!
+    
+    
+    var place = String()
     
     var checkedB = Bool()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    override func viewWillAppear(_ animated: Bool) {
         likeButton.layer.shadowColor = UIColor.black.cgColor
         likeButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         likeButton.layer.shadowRadius = 3
         likeButton.layer.shadowOpacity = 0.5
-        
     }
     
-    @IBAction func likeOnClick(_ sender: Any) {
-       
-//        if !checkedB {
-//            likeButton.setImage(UIImage(named: "heart.png"), for: .normal)
-//            UserUtil.addLikedLocation(location: locationTitle.text!)
-//            checkedB = true
-//        } else {
-//            likeButton.setImage(UIImage(named: "unfavorite.png"), for: .normal)
-//            UserUtil.deleteLike(email: UserUtil.userEmail, field: locationTitle.text!)
-//            checkedB = false
-//        }
+    override func viewDidLoad() {
         
+        locationTitle.text = place
+        
+        UserUtil.getImagePath(city: place) { img in
+            let cityUrl = URL(string: img)
+            self.locationImage.af.setImage(withURL: cityUrl!)
+        }
+        
+        UserUtil.getDescription(city: place) { description in
+            self.descriptionBox.text = description
+        }
+        
+        UserUtil.getCountry(city: place) { country in
+            self.countryTitle.text = country
+        }
+        
+        UserUtil.getLikedLocationsArray(email: UserUtil.userEmail) { like in
+            if like.contains(self.place) {
+                self.checkedB = true
+                self.likeButton.setImage(UIImage(named: "heart.png"), for: .normal)
+            } else {
+                self.checkedB = false
+                self.likeButton.setImage(UIImage(named: "unfavorite.png"), for: .normal)
+            }
+        }
+        
+        
+        
+    }
+
+    
+    @IBAction func onLikeClick(_ sender: Any) {
+        if !checkedB {
+            likeButton.setImage(UIImage(named: "heart.png"), for: .normal)
+            UserUtil.addLikedLocation(location: locationTitle.text!)
+            checkedB = true
+        } else {
+            likeButton.setImage(UIImage(named: "unfavorite.png"), for: .normal)
+            UserUtil.deleteLike(email: UserUtil.userEmail, field: locationTitle.text!)
+            checkedB = false
+        }
     }
     
     /*
