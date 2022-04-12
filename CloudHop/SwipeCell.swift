@@ -10,7 +10,7 @@ import UIKit
 class SwipeCell: UICollectionViewCell {
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var cityCountry: UILabel!
-    @IBOutlet weak var cityDesc: UILabel!
+    @IBOutlet weak var cityDesc: UITextView!
     @IBOutlet weak var cityImage: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     

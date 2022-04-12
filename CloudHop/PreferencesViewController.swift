@@ -36,7 +36,6 @@ class PreferencesViewController: UIViewController,  UICollectionViewDelegate, UI
         }
         
         UserUtil.getLikedLocationsArray(email: UserUtil.userEmail) { like in
-            
             self.preferences = like
             self.preferenceCollection.reloadData()
         }

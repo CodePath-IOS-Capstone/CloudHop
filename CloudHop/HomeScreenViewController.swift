@@ -15,6 +15,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     let db = Firestore.firestore()
     var locations = [String]()
     
+    
     @IBOutlet weak var recommendGrid: UICollectionView!
     @IBOutlet weak var locationsTable: UITableView!
     
@@ -48,6 +49,10 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
 
         self.recommendGrid.reloadData()
+        UserUtil.getCollection(collection: "allCities") { col in
+            self.locations = col
+            self.locationsTable.reloadData()
+        }
         self.locationsTable.reloadData()
         
         
@@ -141,8 +146,17 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        guard segue.identifier == "logoutSegue" else { return }
-        UserDefaults.standard.set(false, forKey: "userLoggedIn")
+        if segue.identifier == "logoutSegue" {
+            UserDefaults.standard.set(false, forKey: "userLoggedIn")
+        }
+        
+        if segue.identifier == "discoverHomeCellSegue" {
+                let selectedIndexPath = locationsTable.indexPath(for: sender as! LocationHomeCell)!
+                let destinationController = segue.destination as! LocationDetailedViewController
+                let carry = locations[selectedIndexPath.row]
+                destinationController.place = carry
+            }
+        
     }
     
     
