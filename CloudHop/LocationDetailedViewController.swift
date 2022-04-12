@@ -8,14 +8,23 @@
 import UIKit
 
 class LocationDetailedViewController: UIViewController {
-
+    
+    @IBOutlet weak var locationImage: UIImageView!
+    @IBOutlet weak var locationTitle: UILabel!
+    @IBOutlet weak var countryTitle: UILabel!
+    @IBOutlet weak var descriptionBox: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func likeOnClick(_ sender: Any) {
+        
+        
+    }
+    
     /*
     // MARK: - Navigation
 
