@@ -62,6 +62,69 @@ class UserUtil {
     }
     
     /*
+     Function to get the follower count of the user
+    */
+    
+    static func getFollowerCount(email: String, completion: @escaping (_ followerCount: String) -> ()) {
+        let followersRef = db.document("followers/\(email)")
+        
+        followersRef.addSnapshotListener { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            let followers = data.keys
+            let followerCount = followers.count
+            completion((String) (followerCount))
+            
+        }
+    }
+    
+    /*
+     Function to get the following count of the user
+    */
+    
+    static func getFollowingCount(email: String, completion: @escaping (_ followingCount: String) -> ()) {
+        let followersRef = db.document("following/\(email)")
+        
+        followersRef.addSnapshotListener { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            let following = data.keys
+            let followingCount = following.count
+            completion((String) (followingCount))
+            
+        }
+    }
+    
+    /*
+     Function to get the list of users following the logged in user
+    */
+    
+    static func getFollowing(email: String, completion: @escaping (_ following: [String]) -> ()) {
+        let followersRef = db.document("following/\(email)")
+        
+        followersRef.addSnapshotListener { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            let following = data.keys
+            completion(([String]) (following))
+            
+        }
+    }
+    
+    /*
+     Function to get the list of the users the logged in user follows
+    */
+    
+    static func getFollowers(email: String, completion: @escaping (_ followers: [String]) -> ()) {
+        let followersRef = db.document("following/\(email)")
+        
+        followersRef.addSnapshotListener { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            let followers = data.keys
+            completion(([String]) (followers))
+            
+        }
+    }
+    
+    
+    /*
     Function to get the current users email and save it in userEmail. Used when fetching information about the user from firestore.
     */
     static func getLoggedInUser() {
@@ -203,8 +266,8 @@ class UserUtil {
             for item in filter {
                 sum += item.value
             }
-            let average = sum / (Double) (filter.keys.count)
-            
+            var average = sum / (Double) (filter.keys.count)
+            average = average / 2.0
             print("Average-->>", average)
             
             var rec = [String:Double]()

@@ -8,10 +8,17 @@
 import UIKit
 
 class UserAccountViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        UserUtil.getFollowerCount(email: UserUtil.userEmail) { followerCount in
+//            self.followerCount.text = followerCount
+//        }
+//        
+//        UserUtil.getFollowingCount(email: UserUtil.userEmail) { followingCount in
+//            self.followingCount.text = followingCount
+//        }
         // Do any additional setup after loading the view.
     }
     

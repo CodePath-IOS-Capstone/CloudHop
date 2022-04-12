@@ -21,6 +21,7 @@
 		07BA7E1027F95B9200893F88 /* collectionExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E0F27F95B9200893F88 /* collectionExt.swift */; };
 		07BA7E1227FFD26800893F88 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E1127FFD26800893F88 /* SwipeViewController.swift */; };
 		07BA7E1827FFD7BF00893F88 /* SwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E1727FFD7BF00893F88 /* SwipeCell.swift */; };
+		07BA7E1A2800E74300893F88 /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E192800E74300893F88 /* UserAccountViewController.swift */; };
 		07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFC27E57659001A9D9E /* AppDelegate.swift */; };
 		07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFE27E57659001A9D9E /* SceneDelegate.swift */; };
 		07F9300427E57659001A9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300227E57659001A9D9E /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		07BA7E0F27F95B9200893F88 /* collectionExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionExt.swift; sourceTree = "<group>"; };
 		07BA7E1127FFD26800893F88 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		07BA7E1727FFD7BF00893F88 /* SwipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCell.swift; sourceTree = "<group>"; };
+		07BA7E192800E74300893F88 /* UserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
 		07F92FF927E57659001A9D9E /* CloudHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FFC27E57659001A9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F92FFE27E57659001A9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				07BA7E0F27F95B9200893F88 /* collectionExt.swift */,
 				07BA7E1127FFD26800893F88 /* SwipeViewController.swift */,
 				07BA7E1727FFD7BF00893F88 /* SwipeCell.swift */,
+				07BA7E192800E74300893F88 /* UserAccountViewController.swift */,
 			);
 			path = CloudHop;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				07987CE827F41612003B4517 /* RecommendCell.swift in Sources */,
 				07BA7E0627F8C6BD00893F88 /* DiscoverTableViewCell.swift in Sources */,
 				07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */,
+				07BA7E1A2800E74300893F88 /* UserAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
