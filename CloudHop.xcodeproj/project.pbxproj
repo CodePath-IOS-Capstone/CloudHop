@@ -22,6 +22,7 @@
 		07BA7E1227FFD26800893F88 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E1127FFD26800893F88 /* SwipeViewController.swift */; };
 		07BA7E1827FFD7BF00893F88 /* SwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E1727FFD7BF00893F88 /* SwipeCell.swift */; };
 		07BA7E1A2800E74300893F88 /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA7E192800E74300893F88 /* UserAccountViewController.swift */; };
+		07BB71DC280655B7002D4F95 /* UserLikesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB71DB280655B7002D4F95 /* UserLikesCell.swift */; };
 		07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFC27E57659001A9D9E /* AppDelegate.swift */; };
 		07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFE27E57659001A9D9E /* SceneDelegate.swift */; };
 		07F9300427E57659001A9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300227E57659001A9D9E /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		07BA7E1127FFD26800893F88 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		07BA7E1727FFD7BF00893F88 /* SwipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCell.swift; sourceTree = "<group>"; };
 		07BA7E192800E74300893F88 /* UserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
+		07BB71DB280655B7002D4F95 /* UserLikesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikesCell.swift; sourceTree = "<group>"; };
 		07F92FF927E57659001A9D9E /* CloudHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FFC27E57659001A9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F92FFE27E57659001A9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				07BA7E1127FFD26800893F88 /* SwipeViewController.swift */,
 				07BA7E1727FFD7BF00893F88 /* SwipeCell.swift */,
 				07BA7E192800E74300893F88 /* UserAccountViewController.swift */,
+				07BB71DB280655B7002D4F95 /* UserLikesCell.swift */,
 			);
 			path = CloudHop;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				6A7BE21127ED5A930072FCED /* AccountViewController.swift in Sources */,
 				6A7BE20D27ED55570072FCED /* cityRecommender.mlmodel in Sources */,
 				07BA7E1027F95B9200893F88 /* collectionExt.swift in Sources */,
+				07BB71DC280655B7002D4F95 /* UserLikesCell.swift in Sources */,
 				07BA7E0827F93E0B00893F88 /* PreferencesViewController.swift in Sources */,
 				0704FC0927E97FDE00806F18 /* LoginViewController.swift in Sources */,
 				07987CE227F40C81003B4517 /* UserUtil.swift in Sources */,

@@ -30,11 +30,14 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+
     @IBOutlet weak var singInBtn: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         //This code gives shadow to the singIn Button
         singInBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         singInBtn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -42,6 +45,7 @@ class AccountViewController: UIViewController {
         singInBtn.layer.shadowRadius = 0.0
         singInBtn.layer.masksToBounds = false
         singInBtn.layer.cornerRadius = 4.0
+
 
         // Do any additional setup after loading the view.
         
