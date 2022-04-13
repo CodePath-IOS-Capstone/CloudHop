@@ -58,26 +58,6 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
     }
     
-    
-    
-    @IBAction func onLogout(_ sender: Any) {
-        signOut()
-    }
-    
-    /*
-    Function to sign out the current user.
-    */
-    func signOut () {
-        do {
-            try FirebaseAuth.Auth.auth().signOut()
-            print("Signed out.")
-            self.performSegue(withIdentifier: "logoutSegue", sender: nil)
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
-        }
-
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -146,9 +126,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "logoutSegue" {
-            UserDefaults.standard.set(false, forKey: "userLoggedIn")
-        }
+
         
         if segue.identifier == "discoverHomeCellSegue" {
                 let selectedIndexPath = locationsTable.indexPath(for: sender as! LocationHomeCell)!

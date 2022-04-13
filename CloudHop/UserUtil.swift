@@ -359,6 +359,22 @@ class UserUtil {
         })
     }
     
+    /*
+    Basic function to get a country for the user
+    */
+    static func getUserCountry(email: String, completion: @escaping (_ country: String) -> ()) {
+        let docRef = db.collection("users").document("\(email)")
+
+        docRef.addSnapshotListener({ snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            
+            let country = data["country"] as? String ?? ""
+            
+            completion((String) (country))
+            
+        })
+    }
+    
     
 }
 
