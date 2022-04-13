@@ -89,7 +89,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             UserUtil.getUsername(email: user) { username in
-                cell.userName.text = username
+                cell.userName.text = "@\(username)"
             }
             UserUtil.getUserCountry(email: user) { country in
                 cell.userCountry.text = country
@@ -110,7 +110,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             UserUtil.getUsername(email: user) { username in
-                cell.userName.text = username
+                cell.userName.text = "@\(username)"
             }
             UserUtil.getUserCountry(email: user) { country in
                 cell.userCountry.text = country

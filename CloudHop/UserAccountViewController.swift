@@ -103,7 +103,7 @@ class UserAccountViewController: UIViewController, UICollectionViewDelegate, UIC
             let followerEmail = followers[indexPath.item]
                 
             UserUtil.getUsername(email: followerEmail) { username in
-                cell.followerName.text = username
+                cell.followerName.text = "@\(username)"
             }
             
             return cell

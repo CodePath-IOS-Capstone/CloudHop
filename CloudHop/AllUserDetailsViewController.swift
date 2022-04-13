@@ -28,7 +28,7 @@ class AllUserDetailsViewController: UIViewController, UICollectionViewDelegate, 
         userImage?.layer.borderColor = UIColor.white.cgColor
         
         UserUtil.getUsername(email: emailUser) { username in
-            self.userName.text = username
+            self.userName.text = "@\(username)"
         }
         UserUtil.getUserCountry(email: emailUser) { country in
             self.userCountry.text = country
@@ -88,7 +88,7 @@ class AllUserDetailsViewController: UIViewController, UICollectionViewDelegate, 
             let followerEmail = followers[indexPath.item]
                 
             UserUtil.getUsername(email: followerEmail) { username in
-                cell.followerName.text = username
+                cell.followerName.text = "@\(username)"
             }
             
             return cell
