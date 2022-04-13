@@ -58,6 +58,29 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
     }
     
+
+    
+   
+    
+    @IBAction func onLogout(_ sender: Any) {
+        signOut()
+    }
+    
+    /*
+    Function to sign out the current user.
+    */
+    func signOut () {
+        do {
+            try FirebaseAuth.Auth.auth().signOut()
+            print("Signed out.")
+            self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+
+    }
+    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }

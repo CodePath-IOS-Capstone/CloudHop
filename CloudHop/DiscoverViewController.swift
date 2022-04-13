@@ -7,6 +7,19 @@
 
 import UIKit
 
+
+extension UITextField {
+func setSearchIcon(_ image: UIImage) {
+   let iconView = UIImageView(frame:
+                  CGRect(x: 320, y: 5, width: 20, height: 20))
+   iconView.image = image
+   let iconContainerView: UIView = UIView(frame:
+                  CGRect(x: 0, y: 0, width: 0, height: 30))
+   iconContainerView.addSubview(iconView)
+   leftView = iconContainerView
+   leftViewMode = .always
+}
+}
 class DiscoverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var discoverTable: UITableView!
@@ -18,7 +31,7 @@ class DiscoverViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Discover"
+//        title = "Discover"
         // Do any additional setup after loading the view.
         discoverTable.delegate = self
         discoverTable.dataSource = self
@@ -30,6 +43,9 @@ class DiscoverViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         discoverTable.keyboardDismissMode = .onDrag
+        
+        searchField.setSearchIcon(UIImage(named: "search1")!)
+        searchField.tintColor = UIColor.lightGray
         
     }
     
@@ -114,6 +130,7 @@ class DiscoverViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
+    
     
     
 
