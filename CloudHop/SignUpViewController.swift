@@ -99,6 +99,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             UserDefaults.standard.set(true, forKey: "userLoggedIn")
             UserDefaults.standard.set(email, forKey: "loggedInEmail")
             self?.createNewUserDocument(data: ["name" : name, "email" : email, "country" : country])
+            UserUtil.setRandomPicture(email: email)
             self?.performSegue(withIdentifier: "preferenceSegue", sender: nil)
             print("Signed in")
             

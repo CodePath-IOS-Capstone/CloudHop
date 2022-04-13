@@ -17,6 +17,7 @@ class UserUtil {
     static let model = cityRecommender()
     static var resultsBack = [String]()
 
+    static var rndcity = ["Aarhus", "Adelaide", "Albuquerque", "Almaty", "Amsterdam", "Anchorage", "Andorra", "Ankara", "Asheville", "Asuncion", "Athens", "Atlanta", "Auckland", "Austin", "Baku", "Bali", "Baltimore", "Bangkok", "Barcelona", "Beijing", "Beirut", "Belfast", "Belgrade", "Belize City", "Bengaluru", "Bergen", "Berlin", "Bern", "Bilbao", "Birmingham", "Bogota", "Boise", "Bologna", "Bordeaux", "Boston", "Boulder", "Bozeman", "Bratislava", "Brighton", "Brisbane", "Bristol", "Brno", "Brussels", "Bucharest", "Budapest", "Buenos Aires", "Buffalo", "Cairo", "Calgary", "Cambridge", "Cape Town", "Caracas", "Cardiff", "Casablanca", "Charleston", "Charlotte", "Chattanooga", "Chennai", "Chiang Mai", "Chicago", "Chisinau", "Christchurch", "Cincinnati", "Cleveland", "Cluj-Napoca", "Cologne", "Colorado Springs", "Columbus", "Copenhagen", "Cork", "Curitiba", "Dallas", "Dar es Salaam", "Delhi", "Denver", "Des Moines", "Detroit", "Doha", "Dresden", "Dubai", "Dublin", "Dusseldorf", "Edinburgh", "Edmonton", "Eindhoven", "Eugene", "Florence", "Florianopolis", "Fort Collins", "Frankfurt", "Fukuoka", "Galway", "Gdansk", "Geneva", "Gibraltar", "Glasgow", "Gothenburg", "Grenoble", "Guadalajara", "Guatemala City", "Halifax", "Hamburg", "Hannover", "Havana", "Helsinki", "Ho Chi Minh City", "Hong Kong", "Honolulu", "Houston", "Hyderabad", "Indianapolis", "Innsbruck", "Istanbul", "Jacksonville", "Jakarta", "Johannesburg", "Kansas City", "Karlsruhe", "Kathmandu", "Kingston", "Knoxville", "Krakow", "Kuala Lumpur", "Kyiv", "Kyoto", "La Paz", "Lagos", "Las Palmas de Gran Canaria", "Las Vegas", "Lausanne", "Leeds", "Leipzig", "Lille", "Lima", "Lisbon", "Liverpool", "Ljubljana", "London", "Los Angeles", "Louisville", "Luxembourg", "Lviv", "Lyon", "Madison", "Madrid", "Malaga", "Malmo", "Managua", "Manchester", "Manila", "Marseille", "Medellin", "Melbourne", "Memphis", "Mexico City", "Miami", "Milan", "Milwaukee", "Minneapolis-Saint Paul", "Minsk", "Montevideo", "Montreal", "Moscow", "Mumbai", "Munich", "Nairobi", "Nantes", "Naples", "Nashville", "New Orleans", "New York", "Nice", "Nicosia", "Oklahoma City", "Omaha", "Orlando", "Osaka", "Oslo", "Ottawa", "Oulu", "Oxford", "Palo Alto", "Panama", "Paris", "Perth", "Philadelphia", "Phnom Penh", "Phoenix", "Phuket", "Pittsburgh", "Portland", "Porto", "Porto Alegre", "Prague", "Providence", "Quebec", "Quito", "Raleigh", "Reykjavik", "Richmond", "Riga", "Rio De Janeiro", "Riyadh", "Rochester", "Rome", "Rotterdam", "Saint Petersburg", "Salt Lake City", "San Antonio", "San Diego", "San Francisco Bay Area", "San Jose", "San Juan", "San Luis Obispo", "San Salvador", "Santiago", "Santo Domingo", "Sao Paulo", "Sarajevo", "Saskatoon", "Seattle", "Seoul", "Seville", "Shanghai", "Singapore", "Skopje", "Sofia", "St. Louis", "Stockholm", "Stuttgart", "Sydney", "Taipei", "Tallinn", "Tampa Bay Area", "Tampere", "Tartu", "Tashkent", "Tbilisi", "Tehran", "Tel Aviv", "The Hague", "Thessaloniki", "Tokyo", "Toronto", "Toulouse", "Tunis", "Turin", "Turku", "Uppsala", "Utrecht", "Valencia", "Valletta", "Vancouver", "Victoria", "Vienna", "Vilnius", "Warsaw", "Washington", "Wellington", "Winnipeg", "Wroclaw", "Yerevan", "Zagreb", "Zurich"]
 
     /*
     Read function to get the values in the locations document. Takes user email and searches that document.
@@ -113,7 +114,7 @@ class UserUtil {
     */
     
     static func getFollowers(email: String, completion: @escaping (_ followers: [String]) -> ()) {
-        let followersRef = db.document("following/\(email)")
+        let followersRef = db.document("followers/\(email)")
         
         followersRef.addSnapshotListener { snapshot, error in
             guard let data = snapshot?.data(), error == nil else { return }
@@ -121,6 +122,44 @@ class UserUtil {
             completion(([String]) (followers))
             
         }
+    }
+    
+    /*
+    Update function to follow a user
+    */
+    static func followUser(email: String, userToFollow: String) {
+        
+        let documentRef = db.document("following/\(userEmail)")
+        
+        documentRef.setData([userToFollow:1], merge: true)
+        
+    }
+    
+    /*
+    Unfollow a user
+    */
+    
+    static func unfollowUser(email: String, field: String) {
+        db.collection("following").document(email).updateData([
+            field : FieldValue.delete(),
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
+    /*
+    Update function to set the user as followed
+    */
+    static func followingUser(email: String, userToFollow: String) {
+        
+        let documentRef = db.document("followers/\(userToFollow)")
+        
+        documentRef.setData([email:1], merge: true)
+        
     }
     
     
@@ -375,6 +414,44 @@ class UserUtil {
         })
     }
     
+    /*
+    Basic function to get a username from a userEmail
+    */
+    static func getUsername(email: String, completion: @escaping (_ username: String) -> ()) {
+        let docRef = db.collection("users").document("\(email)")
+
+        docRef.addSnapshotListener({ snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            
+            let username = data["name"] as? String ?? ""
+            
+            completion((String) (username))
+            
+        })
+    }
     
+    static func setRandomPicture(email: String) {
+        getImagePath(city: rndcity.randomElement()!) { img in
+            let documentRef = db.document("users/\(email)")
+            documentRef.setData(["profilePicture": img], merge: true)
+        }
+    }
+    
+    /*
+    Basic function to get a city profile image URL
+    */
+
+    static func getProfilePicture(email: String, completion: @escaping (_ img: String) -> ()) {
+        let docRef = db.collection("users").document("\(email)")
+
+        docRef.addSnapshotListener({ snapshot, error in
+            guard let data = snapshot?.data(), error == nil else { return }
+            
+            let img = data["profilePicture"] as? String ?? ""
+            
+            completion((String) (img))
+            
+        })
+    }
 }
 
