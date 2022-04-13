@@ -19,7 +19,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var countryField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var signUpBtn: UIButton!
     
     var pickerView = UIPickerView()
     
@@ -33,17 +32,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
 
         // Do any additional setup after loading the view.
-
-        // self.view.backgroundColor = UIColor.red
-        
-        //This code gives shadow to signUp btn
-        signUpBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        signUpBtn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        signUpBtn.layer.shadowOpacity = 1.0
-        signUpBtn.layer.shadowRadius = 0.0
-        signUpBtn.layer.masksToBounds = false
-        signUpBtn.layer.cornerRadius = 4.0
-
         pickerView.delegate = self
         pickerView.dataSource = self
         
@@ -58,7 +46,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return countries.count
-
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
