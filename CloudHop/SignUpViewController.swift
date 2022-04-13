@@ -10,22 +10,54 @@ import FirebaseAuth
 import FirebaseFirestore
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     let db = Firestore.firestore()
+    var countries: [String] = ["United States"]
    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var countryField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    var pickerView = UIPickerView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for code in NSLocale.isoCountryCodes  {
+            let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+            let name = NSLocale(localeIdentifier: "en_UK").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
+            countries.append(name)
+        }
 
         // Do any additional setup after loading the view.
+        pickerView.delegate = self
+        pickerView.dataSource = self
         
+        countryField.inputView = pickerView
 //        self.view.backgroundColor = UIColor.red
+        
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countries.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return countries[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        countryField.text = countries[row]
+        countryField.resignFirstResponder()
+    }
+    
+    
     
     
     @IBAction func SignUp(_ sender: Any) {
