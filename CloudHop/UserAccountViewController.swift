@@ -17,8 +17,10 @@ class UserAccountViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var userCountry: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var likeGrid: UICollectionView!
+    @IBOutlet weak var followGrid: UICollectionView!
     
     var likes = [String]()
+    var followers = [String]()
     
     let db = Firestore.firestore()
     
@@ -29,6 +31,10 @@ class UserAccountViewController: UIViewController, UICollectionViewDelegate, UIC
         userImage?.layer.borderWidth = 3.0
         userImage?.layer.borderColor = UIColor.white.cgColor
 
+        UserUtil.getUsername(email: UserUtil.userEmail) { username in
+            self.username.text = "@\(username)"
+        }
+        
         UserUtil.getFollowerCount(email: UserUtil.userEmail) { followerCount in
             self.followerCount.text = followerCount
         }
@@ -40,39 +46,68 @@ class UserAccountViewController: UIViewController, UICollectionViewDelegate, UIC
         UserUtil.getUserCountry(email: UserUtil.userEmail) { country in
             self.userCountry.text = country
         }
+        
+        UserUtil.getProfilePicture(email: UserUtil.userEmail) { img in
+            let pfpUrl = URL(string: img)!
+            self.userImage.af.setImage(withURL: pfpUrl)
+        }
         // Do any additional setup after loading the view.
         likeGrid.delegate = self
         likeGrid.dataSource = self
+        followGrid.delegate = self
+        followGrid.dataSource = self
         
         UserUtil.getLikedLocationsArray(email: UserUtil.userEmail) { like in
             self.likes = like
             self.likeGrid.reloadData()
         }
         
+        UserUtil.getFollowers(email: UserUtil.userEmail) { followers in
+            print(">>>", followers)
+            self.followers = followers
+            self.followGrid.reloadData()
+        }
+        
+        
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return likes.count
+        if collectionView == self.likeGrid {
+            return likes.count
+        } else {
+            print(followers)
+            return followers.count
+        }
+        
     }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = likeGrid.dequeueReusableCell(withReuseIdentifier: "UserLikesCell", for: indexPath) as! UserLikesCell
-        
-        
-        let city = likes[indexPath.item]
+        if collectionView == self.likeGrid {
+            let cell = likeGrid.dequeueReusableCell(withReuseIdentifier: "UserLikesCell", for: indexPath) as! UserLikesCell
             
-        cell.cityName.text = city
             
-        UserUtil.getImagePath(city: city) { img in
-            let cityUrl = URL(string: img)
-            cell.cityImage.af.setImage(withURL: cityUrl!)
+            let city = likes[indexPath.item]
+                
+            cell.cityName.text = city
+                
+            UserUtil.getImagePath(city: city) { img in
+                let cityUrl = URL(string: img)
+                cell.cityImage.af.setImage(withURL: cityUrl!)
+            }
+            return cell
+        } else {
+            let cell = followGrid.dequeueReusableCell(withReuseIdentifier: "FollowersCell", for: indexPath) as! FollowersCell
+            
+            
+            let followerEmail = followers[indexPath.item]
+                
+            UserUtil.getUsername(email: followerEmail) { username in
+                cell.followerName.text = username
+            }
+            
+            return cell
         }
-            
-        
-        
-        
-        return cell
     }
 
     @IBAction func onLogout(_ sender: Any) {
