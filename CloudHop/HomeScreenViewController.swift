@@ -46,13 +46,13 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         }
         
-        
-
         self.recommendGrid.reloadData()
+        
         UserUtil.getCollection(collection: "allCities") { col in
             self.locations = col
             self.locationsTable.reloadData()
         }
+        
         self.locationsTable.reloadData()
         
         
@@ -136,7 +136,5 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         
     }
-    
-    
 
 }
