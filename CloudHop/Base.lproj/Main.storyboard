@@ -231,7 +231,7 @@
                                             <outlet property="cityDesc" destination="xsJ-ka-cUz" id="ZZB-hh-IRF"/>
                                             <outlet property="cityImage" destination="msT-x3-R0G" id="8Il-nW-WsQ"/>
                                             <outlet property="cityName" destination="Wgo-RU-3Ik" id="EAI-S8-chX"/>
-                                            <segue destination="zIe-Eb-qLV" kind="show" identifier="discoverHomeCellSegue" id="LYY-7r-B5z"/>
+                                            <segue destination="zIe-Eb-qLV" kind="presentation" identifier="discoverHomeCellSegue" id="LYY-7r-B5z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -343,6 +343,7 @@
                                             <outlet property="cityImage" destination="HDV-oe-2U4" id="WMa-ug-W3T"/>
                                             <outlet property="cityName" destination="eg4-wy-R5c" id="7DU-zV-Kna"/>
                                             <outlet property="desc" destination="P7Z-CI-0op" id="2cI-Aq-5FZ"/>
+                                            <segue destination="zIe-Eb-qLV" kind="presentation" identifier="recommendedCellSegue" id="xu7-zY-rqY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -572,7 +573,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="YGs-wW-8Jz"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1372,7 +1373,7 @@
                                             <outlet property="cityImage" destination="HNd-qq-BGH" id="aCd-5k-4MF"/>
                                             <outlet property="cityName" destination="pCV-S0-pth" id="iHo-Bv-rek"/>
                                             <outlet property="desc" destination="Mse-p6-c07" id="1AQ-r0-17H"/>
-                                            <segue destination="zIe-Eb-qLV" kind="show" identifier="discoverViewSegue" id="Hsh-m4-dxC"/>
+                                            <segue destination="zIe-Eb-qLV" kind="presentation" identifier="discoverViewSegue" id="Hsh-m4-dxC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1436,11 +1437,11 @@
             <objects>
                 <viewController storyboardIdentifier="LocationDetailedViewController" id="zIe-Eb-qLV" customClass="LocationDetailedViewController" customModule="CloudHop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h8M-Zn-quo">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gfM-Lq-lE6">
-                                <rect key="frame" x="0.0" y="44" width="390" height="330"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="330"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="390" id="Xw9-QX-wm6"/>
                                     <constraint firstAttribute="height" constant="330" id="YIF-VA-BJn"/>
@@ -1449,19 +1450,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ru-8y-CbG">
-                                <rect key="frame" x="8" y="382" width="290" height="26"/>
+                                <rect key="frame" x="8" y="338" width="290" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73X-Lg-Alh">
-                                <rect key="frame" x="8" y="416" width="291" height="21.666666666666686"/>
+                                <rect key="frame" x="8" y="372" width="291" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4C-x3-ola">
-                                <rect key="frame" x="310" y="344" width="64" height="64"/>
+                                <rect key="frame" x="310" y="300" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="AsM-9e-QYx"/>
                                     <constraint firstAttribute="width" constant="64" id="l67-Ov-6oa"/>
@@ -1477,7 +1478,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e5b-gQ-qfS">
-                                <rect key="frame" x="8" y="445.66666666666674" width="374" height="298.33333333333326"/>
+                                <rect key="frame" x="8" y="401.66666666666674" width="374" height="288.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -1668,7 +1669,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="PIf-aB-0vL"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

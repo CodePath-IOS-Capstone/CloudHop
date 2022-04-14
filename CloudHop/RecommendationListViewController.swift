@@ -67,14 +67,21 @@ class RecommendationListViewController: UIViewController, UITableViewDelegate, U
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "recommendedCellSegue" {
+                let selectedIndexPath = recommendTable.indexPath(for: sender as! AllRecommendationsTableViewCell)!
+                let destinationController = segue.destination as! LocationDetailedViewController
+                let recs = recommendations.sorted()
+                let carry = recs[selectedIndexPath.row]
+                destinationController.place = carry
+            }
     }
-    */
+    
 
 }
