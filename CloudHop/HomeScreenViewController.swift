@@ -15,6 +15,9 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     let db = Firestore.firestore()
     var locations = [String]()
     
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var bgImage: UIImageView!
     
     @IBOutlet weak var recommendGrid: UICollectionView!
     @IBOutlet weak var locationsTable: UITableView!
@@ -22,7 +25,6 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         // Do any additional setup after loading the view.
         UserUtil.getLoggedInUser()        
@@ -55,6 +57,21 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         self.locationsTable.reloadData()
         
+//        bgImage?.layer.cornerRadius = 30
+        
+        userImage?.layer.cornerRadius = (userImage?.frame.size.width ?? 0.0) / 2
+        userImage?.clipsToBounds = true
+        userImage?.layer.borderWidth = 3.0
+        userImage?.layer.borderColor = UIColor.white.cgColor
+        
+        UserUtil.getUsername(email: UserUtil.userEmail) { username in
+            self.username.text = "@\(username)"
+        }
+        
+        UserUtil.getProfilePicture(email: UserUtil.userEmail) { img in
+            let pfpUrl = URL(string: img)!
+            self.userImage.af.setImage(withURL: pfpUrl)
+        }
         
     }
     
