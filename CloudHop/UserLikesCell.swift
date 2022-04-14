@@ -11,6 +11,9 @@ class UserLikesCell: UICollectionViewCell {
     @IBOutlet weak var cityImage: UIImageView!
     @IBOutlet weak var cityName: UILabel!
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        cityImage?.layer.cornerRadius = 20
+    }
     
 }
