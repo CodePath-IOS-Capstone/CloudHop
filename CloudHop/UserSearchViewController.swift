@@ -115,6 +115,10 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UITableVi
             UserUtil.getUserCountry(email: user) { country in
                 cell.userCountry.text = country
             }
+            UserUtil.getProfilePicture(email: user) { img in
+                let pfpUrl = URL(string: img)!
+                cell.userImage.af.setImage(withURL: pfpUrl)
+            }
         }
         
         // TODO: user profile pictures
