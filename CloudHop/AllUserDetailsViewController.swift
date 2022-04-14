@@ -39,6 +39,10 @@ class AllUserDetailsViewController: UIViewController, UICollectionViewDelegate, 
         UserUtil.getFollowingCount(email: emailUser) { followingCount in
             self.followingCount.text = followingCount
         }
+        UserUtil.getProfilePicture(email: emailUser) { img in
+            let pfpUrl = URL(string: img)!
+            self.userImage.af.setImage(withURL: pfpUrl)
+        }
         
         // Do any additional setup after loading the view.
         likeTable.delegate = self
