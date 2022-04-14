@@ -288,9 +288,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dIB-lL-TK7">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dIB-lL-TK7">
+                                <rect key="frame" x="0.0" y="146" width="390" height="698"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommendAllCell" rowHeight="150" id="11D-43-fg3" customClass="AllRecommendationsTableViewCell" customModule="CloudHop" customModuleProvider="target">
@@ -348,9 +347,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="japan" id="iND-hh-3od">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommendations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fv-Xe-2BH">
+                                <rect key="frame" x="77" y="44" width="236" height="30"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hwE-Jv-eD3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dIB-lL-TK7" firstAttribute="top" secondItem="iND-hh-3od" secondAttribute="bottom" constant="8" id="AKG-ew-V9M"/>
+                            <constraint firstItem="dIB-lL-TK7" firstAttribute="leading" secondItem="hwE-Jv-eD3" secondAttribute="leading" id="Osn-hr-FaB"/>
+                            <constraint firstItem="0Fv-Xe-2BH" firstAttribute="centerX" secondItem="UsT-dZ-knJ" secondAttribute="centerX" id="d43-lr-rUO"/>
+                            <constraint firstItem="dIB-lL-TK7" firstAttribute="trailing" secondItem="hwE-Jv-eD3" secondAttribute="trailing" id="iJa-nn-P73"/>
+                            <constraint firstItem="0Fv-Xe-2BH" firstAttribute="top" secondItem="hwE-Jv-eD3" secondAttribute="top" id="pcJ-Up-OxQ"/>
+                            <constraint firstAttribute="bottom" secondItem="dIB-lL-TK7" secondAttribute="bottom" id="tfb-Ej-6k8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4GU-2c-n83"/>
                     <connections>
@@ -359,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJ0-jF-tz5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="1568"/>
+            <point key="canvasLocation" x="2396.9230769230767" y="1567.5355450236966"/>
         </scene>
         <!--Swipe View Controller-->
         <scene sceneID="9Cg-VC-JOJ">
@@ -380,7 +398,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="swipeCell" id="ddo-FB-ADb" customClass="SwipeCell" customModule="CloudHop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4.666666666666667" width="390" height="664"/>
+                                        <rect key="frame" x="0.0" y="26.666666666666668" width="390" height="664"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="C2L-uw-ePq">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="664"/>
@@ -788,7 +806,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDj-pX-K0v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5555" y="1568"/>
+            <point key="canvasLocation" x="6483.0769230769229" y="1567.5355450236966"/>
         </scene>
         <!--User Search View Controller-->
         <scene sceneID="FYT-kT-uHp">
@@ -903,7 +921,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvU-u7-EbX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6280" y="1574.6445497630332"/>
+            <point key="canvasLocation" x="7209.2307692307686" y="1574.6445497630332"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="DW6-cW-kuB">
@@ -1359,9 +1377,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="discover" translatesAutoresizingMaskIntoConstraints="NO" id="4Oz-Ze-Knv">
+                            <imageView opaque="NO" clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Oz-Ze-Knv">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="126"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNV-g2-1i8">
+                                <rect key="frame" x="140" y="44" width="110.33333333333331" height="19"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K4I-XL-CsN">
                                 <rect key="frame" x="16" y="84" width="358" height="30"/>
                                 <color key="backgroundColor" red="0.90542445230000002" green="0.90542445230000002" blue="0.90542445230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1373,13 +1398,6 @@
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNV-g2-1i8">
-                                <rect key="frame" x="140" y="44" width="110.33333333333331" height="21"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="25"/>
-                                <color key="textColor" red="0.81960785390000002" green="0.41568624970000001" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I4w-Bk-uLQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1387,7 +1405,7 @@
                             <constraint firstAttribute="bottom" secondItem="3uS-JV-NzX" secondAttribute="bottom" id="0GS-wL-bjr"/>
                             <constraint firstItem="4Oz-Ze-Knv" firstAttribute="top" secondItem="Z7Q-ax-t9Z" secondAttribute="top" id="4Ey-DR-4U6"/>
                             <constraint firstItem="4Oz-Ze-Knv" firstAttribute="leading" secondItem="I4w-Bk-uLQ" secondAttribute="leading" id="7gT-6N-pLG"/>
-                            <constraint firstItem="K4I-XL-CsN" firstAttribute="top" secondItem="MNV-g2-1i8" secondAttribute="bottom" constant="19" id="8GP-9o-dAg"/>
+                            <constraint firstItem="K4I-XL-CsN" firstAttribute="top" secondItem="MNV-g2-1i8" secondAttribute="bottom" constant="21" id="8GP-9o-dAg"/>
                             <constraint firstItem="3uS-JV-NzX" firstAttribute="top" secondItem="K4I-XL-CsN" secondAttribute="bottom" constant="20" id="HAc-3P-Day"/>
                             <constraint firstAttribute="trailing" secondItem="4Oz-Ze-Knv" secondAttribute="trailing" id="QTa-5l-Tgl"/>
                             <constraint firstItem="4Oz-Ze-Knv" firstAttribute="leading" secondItem="I4w-Bk-uLQ" secondAttribute="leading" id="Qev-51-Uwq"/>
@@ -1411,7 +1429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nvl-N8-iGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3253.8461538461538" y="1567.5355450236966"/>
+            <point key="canvasLocation" x="4183.0769230769229" y="1567.5355450236966"/>
         </scene>
         <!--Location Detailed View Controller-->
         <scene sceneID="fX0-Zs-wVd">
@@ -1524,6 +1542,7 @@
                     <connections>
                         <segue destination="nw7-4a-jMT" kind="relationship" relationship="viewControllers" id="Th3-Ux-Tmt"/>
                         <segue destination="dk2-7L-7gV" kind="relationship" relationship="viewControllers" id="Jnt-5t-qdI"/>
+                        <segue destination="CQ9-il-O0r" kind="relationship" relationship="viewControllers" id="bF5-h1-IXh"/>
                         <segue destination="aUB-HA-Txg" kind="relationship" relationship="viewControllers" id="uB4-de-zgI"/>
                         <segue destination="bAy-6n-iCN" kind="relationship" relationship="viewControllers" id="Ffc-pE-ygz"/>
                     </connections>
@@ -1535,13 +1554,13 @@
         <!--Explore-->
         <scene sceneID="hwk-sf-7L3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dk2-7L-7gV" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="dk2-7L-7gV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="heart.circle.fill" catalog="system" id="NlC-Cp-0wG">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="C0s-82-5gz">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1570,7 +1589,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8l-dU-OYx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4823.0769230769229" y="1567.5355450236966"/>
+            <point key="canvasLocation" x="5752.3076923076924" y="1567.5355450236966"/>
         </scene>
         <!--Discover-->
         <scene sceneID="GaH-ga-TJX">
@@ -1590,7 +1609,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpt-4C-ZRu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2324.6153846153848" y="1567.5355450236966"/>
+            <point key="canvasLocation" x="3253.8461538461538" y="1567.5355450236966"/>
         </scene>
         <!--All User Details View Controller-->
         <scene sceneID="H1y-bI-pGW">
@@ -1846,18 +1865,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="407-9J-fmH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7036.9230769230771" y="1574.6445497630332"/>
+            <point key="canvasLocation" x="7966.1538461538457" y="1574.6445497630332"/>
+        </scene>
+        <!--Recommend-->
+        <scene sceneID="req-gv-nK1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="CQ9-il-O0r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recommend" image="circle.hexagongrid.circle.fill" catalog="system" id="BjL-5A-1ab"/>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oD9-Wg-yYZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CSA-b6-y4h" kind="relationship" relationship="rootViewController" id="XdC-Ic-ZXE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zcr-FG-CoT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1467.6923076923076" y="1567.5355450236966"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Hsh-m4-dxC"/>
         <segue reference="yug-wC-oy6"/>
-        <segue reference="V4L-br-uOU"/>
+        <segue reference="VaM-uh-2nF"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="0" width="457" height="640"/>
         <image name="Group 1" width="488" height="474"/>
         <image name="Line 1" width="2" height="81"/>
         <image name="background" width="650" height="1155"/>
+        <image name="circle.hexagongrid.circle.fill" catalog="system" width="128" height="121"/>
         <image name="cloud.fill" catalog="system" width="128" height="88"/>
         <image name="cloudss" width="564" height="317"/>
         <image name="discover" width="563" height="373"/>
@@ -1865,6 +1905,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.circle.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="japan" width="564" height="864"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plane-1" width="225" height="225"/>

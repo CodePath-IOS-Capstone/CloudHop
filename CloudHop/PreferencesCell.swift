@@ -22,6 +22,7 @@ class PreferencesCell: UICollectionViewCell {
         // from being clipped to the corner radius
         layer.cornerRadius = 12.0
         layer.masksToBounds = false
+       
     }
     
 }

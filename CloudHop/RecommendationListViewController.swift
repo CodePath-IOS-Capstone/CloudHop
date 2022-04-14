@@ -16,7 +16,7 @@ class RecommendationListViewController: UIViewController, UITableViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Recommendations"
+        title = "Recommend"
 
         // Do any additional setup after loading the view.
         

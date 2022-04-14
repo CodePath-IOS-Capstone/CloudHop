@@ -12,4 +12,11 @@ class RecommendCell: UICollectionViewCell {
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var cityImage: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+            cityImage?.layer.cornerRadius = 20
+    }
+    
+    
 }

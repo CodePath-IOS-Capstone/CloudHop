@@ -19,6 +19,7 @@ class LocationHomeCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         selectionStyle = .none
+            cityImage?.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
