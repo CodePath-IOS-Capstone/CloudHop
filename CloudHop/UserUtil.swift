@@ -429,7 +429,9 @@ class UserUtil {
             
         })
     }
-    
+    /*
+     set a random profile picture for the user on account creation
+    */
     static func setRandomPicture(email: String) {
         getImagePath(city: rndcity.randomElement()!) { img in
             let documentRef = db.document("users/\(email)")
@@ -452,6 +454,22 @@ class UserUtil {
             completion((String) (img))
             
         })
+    }
+    
+    /*
+     set a custom profile picture for the user on account creation
+    */
+    static func setProfilePicture(email: String, img: String) {
+        let documentRef = db.document("users/\(email)")
+        documentRef.setData(["profilePicture": img], merge: true)
+    }
+    
+    /*
+     set a username for the user
+    */
+    static func setUsername(email: String, username: String) {
+        let documentRef = db.document("users/\(email)")
+        documentRef.setData(["name": username], merge: true)
     }
 }
 

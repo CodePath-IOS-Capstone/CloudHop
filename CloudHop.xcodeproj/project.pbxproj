@@ -27,6 +27,7 @@
 		07BB71E42806B520002D4F95 /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB71E32806B520002D4F95 /* UserSearchViewController.swift */; };
 		07BB71E62806B550002D4F95 /* UserSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB71E52806B550002D4F95 /* UserSearchCell.swift */; };
 		07BB71E82806D214002D4F95 /* AllUserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB71E72806D214002D4F95 /* AllUserDetailsViewController.swift */; };
+		07BB71EC2808CD05002D4F95 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB71EB2808CD05002D4F95 /* SettingsViewController.swift */; };
 		07F92FFD27E57659001A9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFC27E57659001A9D9E /* AppDelegate.swift */; };
 		07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F92FFE27E57659001A9D9E /* SceneDelegate.swift */; };
 		07F9300427E57659001A9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F9300227E57659001A9D9E /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		07BB71E32806B520002D4F95 /* UserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		07BB71E52806B550002D4F95 /* UserSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchCell.swift; sourceTree = "<group>"; };
 		07BB71E72806D214002D4F95 /* AllUserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserDetailsViewController.swift; sourceTree = "<group>"; };
+		07BB71EB2808CD05002D4F95 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		07F92FF927E57659001A9D9E /* CloudHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F92FFC27E57659001A9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F92FFE27E57659001A9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				07BB71E32806B520002D4F95 /* UserSearchViewController.swift */,
 				07BB71E52806B550002D4F95 /* UserSearchCell.swift */,
 				07BB71E72806D214002D4F95 /* AllUserDetailsViewController.swift */,
+				07BB71EB2808CD05002D4F95 /* SettingsViewController.swift */,
 			);
 			path = CloudHop;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				6A5DD97F2800E32A005D8676 /* LocationDetailedViewController.swift in Sources */,
 				07BA7E0027F8B9C900893F88 /* DiscoverViewController.swift in Sources */,
 				07BA7E0427F8C3A700893F88 /* AllRecommendationsTableViewCell.swift in Sources */,
+				07BB71EC2808CD05002D4F95 /* SettingsViewController.swift in Sources */,
 				07987CE827F41612003B4517 /* RecommendCell.swift in Sources */,
 				07BA7E0627F8C6BD00893F88 /* DiscoverTableViewCell.swift in Sources */,
 				07F92FFF27E57659001A9D9E /* SceneDelegate.swift in Sources */,

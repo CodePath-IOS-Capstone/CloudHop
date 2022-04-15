@@ -77,8 +77,12 @@ class AccountViewController: UIViewController {
 
     }
     
-   
-        
+    
+    
+    @IBAction func clickOutsideField(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     
     /*
     Function to sign in to an existing user account with email and password

@@ -8,6 +8,7 @@ target 'CloudHop' do
   # Pods for CloudHop
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
+pod 'Firebase/Storage'
 pod 'Firebase/Firestore'
 pod 'AlamofireImage'
 pod 'Alamofire'

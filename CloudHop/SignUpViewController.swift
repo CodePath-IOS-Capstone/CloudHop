@@ -70,6 +70,9 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         countryField.resignFirstResponder()
     }
     
+    @IBAction func clickOutsideField(_ sender: Any) {
+        view.endEditing(true)
+    }
     
     
     
