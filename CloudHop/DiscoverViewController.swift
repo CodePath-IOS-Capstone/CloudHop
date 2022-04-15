@@ -11,7 +11,7 @@ import UIKit
 extension UITextField {
 func setSearchIcon(_ image: UIImage) {
    let iconView = UIImageView(frame:
-                  CGRect(x: 320, y: 5, width: 20, height: 20))
+                  CGRect(x: 360, y: 5, width: 20, height: 20))
    iconView.image = image
    let iconContainerView: UIView = UIView(frame:
                   CGRect(x: 0, y: 0, width: 0, height: 30))
