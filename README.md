@@ -30,17 +30,17 @@ Travel recommendation app for allowing users to sign up for accounts and choose 
 * [User registration] (DONE)
 * [User login and logout] (DONE)
 * [recommendation system to use world cities dataset to predict locations users may like.] (DONE)
-* [UI for viewing the recommendations] (IN PROGRESS)
-* [UI for user account creation and selecting basic information on preferences.] (IN PROGRESS)
-* [UI for all locations view] (IN PROGRESS)
-* [UI for feed and viewing follower likes.] 
+* [UI for viewing the recommendations] (DONE)
+* [UI for user account creation and selecting basic information on preferences.] (DONE)
+* [UI for all locations view] (DONE)
+* [UI for feed and viewing followers.] (DONE)
 
 **Optional Nice-to-have Stories**
 
-* [UI for viewing different user profile accounts]
-* [searching for different user accounts]
+* [UI for viewing different user profile accounts] (DONE)
+* [searching for different user accounts] (DONE)
 * [view for explore, to see locations and activities within a city]
-* [settings page]
+* [settings page] (DONE)
 
 ### 2. Screen Archetypes
 
