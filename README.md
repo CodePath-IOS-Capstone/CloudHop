@@ -6,7 +6,7 @@
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
 3. [Sprint Updates](#Updates)
-4. [Local Demo Day Video] (#Demo)
+4. [Local Demo Day Video](#Demo)
 
 ## Overview
 ### Description
